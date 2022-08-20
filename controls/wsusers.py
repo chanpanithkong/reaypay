@@ -10,12 +10,11 @@ from flask_jwt_extended import (
     unset_jwt_cookies
 )
 from flask_jwt_extended import JWTManager
-from src.config.db import db, app, api
+from config.db import db, app, api
 
 from ..models.wsusers import tbwsusers
 from ..models.wsuserschema import WsUserSchema
 from blacklist import BLACKLIST
-from ..libs.strings import gettext
 
 
 
@@ -38,7 +37,7 @@ class WsUserLogin(Resource):
             set_access_cookies(response, access_token)
             
             return {'msg': 'login',"access_token":access_token}, 200
-        return {"msg": gettext("user_invalid_credentials")}, 401
+        return {"msg": "user_invalid_credentials"}, 401
 
 
 class WsUserLogout(Resource):

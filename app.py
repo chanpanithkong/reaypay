@@ -5,11 +5,10 @@ from marshmallow import ValidationError
 from flask_jwt_extended import JWTManager
 from blacklist import BLACKLIST
 
-
 from config.db import db, app, api
 
 
-from control.wsusers import WsTokenRefresh, WsUserLogin, WsUserLogout
+from controls.wsusers import WsTokenRefresh, WsUserLogin, WsUserLogout
 
 
 app = Flask(__name__, template_folder='templates')
@@ -19,17 +18,17 @@ api = Api(app)
 
 
 
-@app.errorhandler(ValidationError)
-def handle_marshmallow_validation(err):
-    return {"msg":err.messages}, 400
+# @app.errorhandler(ValidationError)
+# def handle_marshmallow_validation(err):
+#     return {"msg":err.messages}, 400
 
-jwt = JWTManager(app)
+# jwt = JWTManager(app)
 
 
-@jwt.token_in_blocklist_loader
-def check_if_token_in_blacklist(jwt_header, jwt_payload: dict):
-    jti = jwt_payload["jti"]
-    return jti in BLACKLIST
+# @jwt.token_in_blocklist_loader
+# def check_if_token_in_blacklist(jwt_header, jwt_payload: dict):
+#     jti = jwt_payload["jti"]
+#     return jti in BLACKLIST
 
 
 # jwt token
