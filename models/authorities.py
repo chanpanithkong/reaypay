@@ -6,7 +6,7 @@ class tbauthorities(db.Model):
     username = db.Column(db.String)
     userpassword = db.Column(db.String)
     gender = db.Column(db.String)
-    dob = db
+    dob = db.Column(db.DateTime)
     address = db.Column(db.String)
     photo = db.Column(db.String)
     

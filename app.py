@@ -9,7 +9,15 @@ from config.db import db, app, api
 
 
 from controls.wsusers import WsTokenRefresh, WsUserLogin, WsUserLogout
+from controls.authorities import Authorities,AuthoritiesList
+from controls.citizens import Citizens,CitizensList
+from controls.communes import Communes,CommunesList
+from controls.disticts import Disticts,DistictsList
+from controls.parties import Parties,PartiesList
+from controls.provinces import Provinces,ProvincesList
 from controls.roles import Role,RoleList
+from controls.userroles import UserRoles,UserRolesList
+from controls.villages import Villages,VillagesList
 
 
 @app.route("/")
@@ -34,9 +42,7 @@ def index():
 # api.add_resource(WsUserLogin, "/wslogin")
 # api.add_resource(WsTokenRefresh, "/wsrefresh")
 # api.add_resource(WsUserLogout, "/wslogout")
-#roles
-api.add_resource(RoleList, "/rolelist")
-api.add_resource(Role, "/rolebyid/<roleid>")
+
 
 # # users
 # api.add_resource(UserList, "/userlist")
@@ -46,46 +52,27 @@ api.add_resource(Role, "/rolebyid/<roleid>")
 # api.add_resource(UserInsert, "/userUpdate")
 # api.add_resource(UserLogin, "/userlogin")
 
-# #brnaches
-# api.add_resource(BranchList, "/branchlist")
-# api.add_resource(Branch, "/branchbycode/<branchcode>")
-# #departments
-# api.add_resource(DepartmentList, "/departmentlist")
-# api.add_resource(Department, "/departmentbyid/<deptid>")
-# #formcategories
-# api.add_resource(FormCategoryList, "/formcategorylist")
-# api.add_resource(FormCategory, "/formcategorybyid/<formcategoryid>")
-# #forms
-# api.add_resource(FormList, "/formlist")
-# api.add_resource(Form, "/formbyid/<formid>")
-# #positsions
-# api.add_resource(PositionList, "/positionlist")
-# api.add_resource(Position, "/positionbyid/<positionid>")
-# #rolecategories
-# api.add_resource(RoleCategoryList, "/rolecategorylist")
-# api.add_resource(RoleCategory, "/rolecategorybyid/<rolecategoryid>")
-
-# #serialnumbers
-# api.add_resource(SerialNumbersList, "/serialnumberlist")
-# api.add_resource(SerialNumbers, "/serialnumberbyid/<serialnumber>")
-# #status
-# api.add_resource(StatusList, "/statuslist")
-# api.add_resource(Status, "/statusbyid/<statusid>")
-# #systems
-# api.add_resource(SystemList, "/systemlist")
-# api.add_resource(System, "/systembyid/<systemid>")
-# #systemserialnumbers
-# api.add_resource(SystemSertialNumberList, "/systemserialnumberlist")
-# api.add_resource(SystemSertialNumber, "/systemserialnumberbyid/<systemid>")
-# #userlog
-# api.add_resource(UserLogList, "/userloglist")
-# api.add_resource(UserLog, "/userlogbyid/<userlogid>")
-# #userrequestforms
-# api.add_resource(UserRequestFormList, "/userrequestformlist")
-# api.add_resource(UserRequestForm, "/userrequestformbyid/<aid>")
-# #userroles
-# api.add_resource(UserRoleList, "/userrolelist")
-# api.add_resource(UserRole, "/userrolebyid/<userid>")
+#Authorities
+api.add_resource(AuthoritiesList, "/authoritiesList")
+api.add_resource(Authorities, "/authorities/<aid>")
+#Citizens
+api.add_resource(CitizensList, "/citizensList")
+api.add_resource(Citizens, "/citizens/<cid>")
+#Communes
+api.add_resource(CommunesList, "/communesList")
+api.add_resource(Communes, "/communes/<cid>")
+#Disticts
+api.add_resource(DistictsList, "/distictsList")
+api.add_resource(Disticts, "/disticts/<did>")
+#Parties
+api.add_resource(PartiesList, "/partiesList")
+api.add_resource(Parties, "/parties/<pid>")
+#Provinces
+api.add_resource(ProvincesList, "/provincesList")
+api.add_resource(Provinces, "/provinces/<pid>")
+#UserRoles
+api.add_resource(UserRolesList, "/userRolesList")
+api.add_resource(UserRoles, "/userRoles/<urid>")
 
 
 

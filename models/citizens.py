@@ -8,7 +8,7 @@ class tbcitizens(db.Model):
     middlename = db.Column("middlename", db.String)
     lastname = db.Column("lastname", db.String) 
     gender = db.Column(db.String)
-    dob = db.Column(db.String, db.String)
+    dob = db.Column(db.DateTime)
     placeofbirth = db.Column(db.String)
     address = db.Column(db.String)
     electioncenter = db.Column(db.String)
