@@ -1,6 +1,6 @@
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema, auto_field
-from ..models.wsusers import tbwsusers
-from ..config.db import db
+from models.wsusers import tbwsusers
+from config.db import db
 
 class WsUserSchema(SQLAlchemyAutoSchema):
     class Meta:

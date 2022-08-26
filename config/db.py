@@ -1,10 +1,9 @@
-from tkinter.tix import Tree
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api
 
-app = Flask(__name__, template_folder='templates')
-
+# app = Flask(__name__, template_folder='templates')
+app = Flask(__name__)
 api = Api(app)
 
 
@@ -14,7 +13,7 @@ app.config['SECRET_KEY'] = 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRw
 #disable message error in internal system
 app.config['PROPAGATE_EXCEPTIONS'] = True
 # mysql db connect
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost:3306/dbpartychecklist'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:$Cambodia__089$@localhost:3306/dbpartychecklist'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 DEBUG = True
 

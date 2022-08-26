@@ -9,13 +9,12 @@ from config.db import db, app, api
 
 
 from controls.wsusers import WsTokenRefresh, WsUserLogin, WsUserLogout
+from controls.roles import Role,RoleList
 
 
-app = Flask(__name__, template_folder='templates')
-
-api = Api(app)
-
-
+@app.route("/")
+def index():
+    return "Hello World"
 
 
 # @app.errorhandler(ValidationError)
@@ -31,61 +30,62 @@ api = Api(app)
 #     return jti in BLACKLIST
 
 
-# jwt token
-api.add_resource(WsUserLogin, "/wslogin")
-api.add_resource(WsTokenRefresh, "/wsrefresh")
-api.add_resource(WsUserLogout, "/wslogout")
-
-# users
-api.add_resource(UserList, "/userlist")
-api.add_resource(Users, "/userbyid/<userid>")
-api.add_resource(UserDelete, "/userdelete")
-api.add_resource(UserUpdate, "/userUpdate")
-api.add_resource(UserInsert, "/userUpdate")
-api.add_resource(UserLogin, "/userlogin")
-
-#brnaches
-api.add_resource(BranchList, "/branchlist")
-api.add_resource(Branch, "/branchbycode/<branchcode>")
-#departments
-api.add_resource(DepartmentList, "/departmentlist")
-api.add_resource(Department, "/departmentbyid/<deptid>")
-#formcategories
-api.add_resource(FormCategoryList, "/formcategorylist")
-api.add_resource(FormCategory, "/formcategorybyid/<formcategoryid>")
-#forms
-api.add_resource(FormList, "/formlist")
-api.add_resource(Form, "/formbyid/<formid>")
-#positsions
-api.add_resource(PositionList, "/positionlist")
-api.add_resource(Position, "/positionbyid/<positionid>")
-#rolecategories
-api.add_resource(RoleCategoryList, "/rolecategorylist")
-api.add_resource(RoleCategory, "/rolecategorybyid/<rolecategoryid>")
+# # jwt token
+# api.add_resource(WsUserLogin, "/wslogin")
+# api.add_resource(WsTokenRefresh, "/wsrefresh")
+# api.add_resource(WsUserLogout, "/wslogout")
 #roles
 api.add_resource(RoleList, "/rolelist")
 api.add_resource(Role, "/rolebyid/<roleid>")
-#serialnumbers
-api.add_resource(SerialNumbersList, "/serialnumberlist")
-api.add_resource(SerialNumbers, "/serialnumberbyid/<serialnumber>")
-#status
-api.add_resource(StatusList, "/statuslist")
-api.add_resource(Status, "/statusbyid/<statusid>")
-#systems
-api.add_resource(SystemList, "/systemlist")
-api.add_resource(System, "/systembyid/<systemid>")
-#systemserialnumbers
-api.add_resource(SystemSertialNumberList, "/systemserialnumberlist")
-api.add_resource(SystemSertialNumber, "/systemserialnumberbyid/<systemid>")
-#userlog
-api.add_resource(UserLogList, "/userloglist")
-api.add_resource(UserLog, "/userlogbyid/<userlogid>")
-#userrequestforms
-api.add_resource(UserRequestFormList, "/userrequestformlist")
-api.add_resource(UserRequestForm, "/userrequestformbyid/<aid>")
-#userroles
-api.add_resource(UserRoleList, "/userrolelist")
-api.add_resource(UserRole, "/userrolebyid/<userid>")
+
+# # users
+# api.add_resource(UserList, "/userlist")
+# api.add_resource(Users, "/userbyid/<userid>")
+# api.add_resource(UserDelete, "/userdelete")
+# api.add_resource(UserUpdate, "/userUpdate")
+# api.add_resource(UserInsert, "/userUpdate")
+# api.add_resource(UserLogin, "/userlogin")
+
+# #brnaches
+# api.add_resource(BranchList, "/branchlist")
+# api.add_resource(Branch, "/branchbycode/<branchcode>")
+# #departments
+# api.add_resource(DepartmentList, "/departmentlist")
+# api.add_resource(Department, "/departmentbyid/<deptid>")
+# #formcategories
+# api.add_resource(FormCategoryList, "/formcategorylist")
+# api.add_resource(FormCategory, "/formcategorybyid/<formcategoryid>")
+# #forms
+# api.add_resource(FormList, "/formlist")
+# api.add_resource(Form, "/formbyid/<formid>")
+# #positsions
+# api.add_resource(PositionList, "/positionlist")
+# api.add_resource(Position, "/positionbyid/<positionid>")
+# #rolecategories
+# api.add_resource(RoleCategoryList, "/rolecategorylist")
+# api.add_resource(RoleCategory, "/rolecategorybyid/<rolecategoryid>")
+
+# #serialnumbers
+# api.add_resource(SerialNumbersList, "/serialnumberlist")
+# api.add_resource(SerialNumbers, "/serialnumberbyid/<serialnumber>")
+# #status
+# api.add_resource(StatusList, "/statuslist")
+# api.add_resource(Status, "/statusbyid/<statusid>")
+# #systems
+# api.add_resource(SystemList, "/systemlist")
+# api.add_resource(System, "/systembyid/<systemid>")
+# #systemserialnumbers
+# api.add_resource(SystemSertialNumberList, "/systemserialnumberlist")
+# api.add_resource(SystemSertialNumber, "/systemserialnumberbyid/<systemid>")
+# #userlog
+# api.add_resource(UserLogList, "/userloglist")
+# api.add_resource(UserLog, "/userlogbyid/<userlogid>")
+# #userrequestforms
+# api.add_resource(UserRequestFormList, "/userrequestformlist")
+# api.add_resource(UserRequestForm, "/userrequestformbyid/<aid>")
+# #userroles
+# api.add_resource(UserRoleList, "/userrolelist")
+# api.add_resource(UserRole, "/userrolebyid/<userid>")
 
 
 

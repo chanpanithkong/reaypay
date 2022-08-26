@@ -12,8 +12,8 @@ from flask_jwt_extended import (
 from flask_jwt_extended import JWTManager
 from config.db import db, app, api
 
-from ..models.wsusers import tbwsusers
-from ..models.wsuserschema import WsUserSchema
+from models.wsusers import tbwsusers
+from models.wsuserschema import WsUserSchema
 from blacklist import BLACKLIST
 
 
