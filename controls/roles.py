@@ -17,7 +17,7 @@ class Role(Resource):
             roledata = tbroles.find_by_roleid(roleid)
             role_schema = RolesSchema(many=False)
             role_data = role_schema.dump(roledata)
-            return {"branches":role_data}
+            return {"role":role_data}
         except Exception as err:
             return {"msg":err} 
 
@@ -30,6 +30,6 @@ class RoleList(Resource):
             roledata = tbroles.query.all()
             role_schema = RolesSchema(many=True)
             role_data = role_schema.dump(roledata)
-            return {"branches":role_data}
+            return {"role":role_data}
         except Exception as err:
             return {"msg":err} 

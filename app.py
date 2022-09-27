@@ -10,7 +10,7 @@ from config.db import db, app, api
 
 from controls.wsusers import WsTokenRefresh, WsUserLogin, WsUserLogout
 from controls.authorities import Authorities,AuthoritiesList
-from controls.citizens import Citizens,CitizensList
+from controls.citizens import Citizens,CitizensList,InsertCitizen,DeleteCitizen,UpdateCitizen
 from controls.communes import Communes,CommunesList
 from controls.disticts import Disticts,DistictsList
 from controls.parties import Parties,PartiesList
@@ -53,25 +53,35 @@ def index():
 # api.add_resource(UserLogin, "/userlogin")
 
 #Authorities
-api.add_resource(AuthoritiesList, "/authoritiesList")
+api.add_resource(AuthoritiesList, "/authoritieslist")
 api.add_resource(Authorities, "/authorities/<aid>")
 #Citizens
-api.add_resource(CitizensList, "/citizensList")
+api.add_resource(CitizensList, "/citizenslist")
 api.add_resource(Citizens, "/citizens/<cid>")
+api.add_resource(DeleteCitizen, "/deletecitizen")
+api.add_resource(InsertCitizen, "/insertcitizen")
+api.add_resource(UpdateCitizen, "/updatecitizen")
+
+#Roles
+api.add_resource(RoleList, "/rolelist")
+api.add_resource(Role, "/role/<cid>")
+#Villages
+api.add_resource(VillagesList, "/villageslist")
+api.add_resource(Villages, "/villages/<cid>")
 #Communes
-api.add_resource(CommunesList, "/communesList")
+api.add_resource(CommunesList, "/communeslist")
 api.add_resource(Communes, "/communes/<cid>")
 #Disticts
-api.add_resource(DistictsList, "/distictsList")
+api.add_resource(DistictsList, "/distictslist")
 api.add_resource(Disticts, "/disticts/<did>")
 #Parties
-api.add_resource(PartiesList, "/partiesList")
+api.add_resource(PartiesList, "/partieslist")
 api.add_resource(Parties, "/parties/<pid>")
 #Provinces
-api.add_resource(ProvincesList, "/provincesList")
+api.add_resource(ProvincesList, "/provinceslist")
 api.add_resource(Provinces, "/provinces/<pid>")
 #UserRoles
-api.add_resource(UserRolesList, "/userRolesList")
+api.add_resource(UserRolesList, "/userroleslist")
 api.add_resource(UserRoles, "/userRoles/<urid>")
 
 

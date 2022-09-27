@@ -2,8 +2,8 @@ from sqlite3 import paramstyle
 from config.db import db
 
 class tbcitizens(db.Model):
-    
-    cid = db.Column("cid", db.String, primary_key = True)
+
+    cid = db.Column("cid", db.String,primary_key=True)
     firstname = db.Column("firstname", db.String)
     middlename = db.Column("middlename", db.String)
     lastname = db.Column("lastname", db.String) 
@@ -30,7 +30,6 @@ class tbcitizens(db.Model):
         self.party = party
         self.updatedby = updatedby
         self.updateddate = updateddate
-
 
     @classmethod
     def find_by_cid(cls, cid) -> "tbcitizens":

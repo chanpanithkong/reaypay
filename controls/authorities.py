@@ -33,3 +33,23 @@ class AuthoritiesList(Resource):
             return {"authorities":_data}
         except Exception as err:
             return {"msg":err} 
+
+# class UserLogin(Resource):
+#     @classmethod
+#     @jwt_required()
+#     def get(cls):
+#         try:  
+#             data = request.get_json()
+#             userid = data['data']['userid']
+#             password = data['data']['password']
+            
+#             get_usersdata = tbusers.find_by_userid(userid)
+#             user_schema = UserSchema()
+#             user_data = user_schema.dump(get_usersdata)
+
+#             if user_data.password == password:
+#                 return {"login":True}
+#             return {"login":False}
+            
+#         except Exception as err:
+#             return {"msg":err} 
