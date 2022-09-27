@@ -51,21 +51,20 @@ class UpdateCitizen(Resource):
 
             if (citizen_data is not None):
 
-                get_statusdata = tbcitizens()
+                # get_statusdata = tbcitizens()
                 # get_statusdata.cid = data['data']['cid']
-                get_statusdata.lastname = data['data']['lastname']
-                get_statusdata.middlename = data['data']['middlename']
-                get_statusdata.firstname = data['data']['firstname']
-                get_statusdata.gender = data['data']['gender']
-                get_statusdata.dob = data['data']['dob']
-                get_statusdata.placeofbirth = data['data']['placeofbirth']
-                get_statusdata.address = data['data']['address']
-                get_statusdata.electioncenter = data['data']['electioncenter']
-                get_statusdata.party = data['data']['party']
-                get_statusdata.updatedby = data['data']['updatedby']
-                get_statusdata.updateddate = data['data']['updateddate']
+                citizen_data.lastname = data['data']['lastname']
+                citizen_data.middlename = data['data']['middlename']
+                citizen_data.firstname = data['data']['firstname']
+                citizen_data.gender = data['data']['gender']
+                citizen_data.dob = data['data']['dob']
+                citizen_data.placeofbirth = data['data']['placeofbirth']
+                citizen_data.address = data['data']['address']
+                citizen_data.electioncenter = data['data']['electioncenter']
+                citizen_data.party = data['data']['party']
+                citizen_data.updatedby = data['data']['updatedby']
+                citizen_data.updateddate = data['data']['updateddate']
                 
-                db.session.add(get_statusdata)
                 db.session.commit()
                 result = "update cid : " + data['data']['cid']
                 return {"msg": result}
