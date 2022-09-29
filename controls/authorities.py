@@ -34,6 +34,12 @@ class AuthoritiesList(Resource):
         except Exception as err:
             return {"msg":err} 
 
+class IndexPage(Resource):
+    @classmethod
+    # @jwt_required()
+    def get(cls):
+        return "<h1>hello world</h1>" 
+
 # class UserLogin(Resource):
 #     @classmethod
 #     @jwt_required()
