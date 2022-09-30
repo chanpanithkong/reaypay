@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api
@@ -13,6 +14,7 @@ app.config['SECRET_KEY'] = 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRw
 #disable message error in internal system
 app.config['PROPAGATE_EXCEPTIONS'] = True
 # mysql db connect
+# os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:$Cambodia__089$@localhost:3306/dbpartychecklist'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 DEBUG = True
