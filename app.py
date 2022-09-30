@@ -54,7 +54,7 @@ def index():
 # Hello word
 
 api.add_resource(IndexPage, "/")
-bf2ef13ab2147945
+
 #Authorities
 api.add_resource(AuthoritiesList, "/authoritieslist")
 api.add_resource(Authorities, "/authorities/<aid>")
