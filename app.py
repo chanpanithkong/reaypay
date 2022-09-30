@@ -9,7 +9,7 @@ from config.db import db, app, api
 
 
 from controls.wsusers import WsTokenRefresh, WsUserLogin, WsUserLogout
-from controls.authorities import Authorities,AuthoritiesList
+from controls.authorities import Authorities,AuthoritiesList, IndexPage
 from controls.citizens import Citizens,CitizensList,InsertCitizen,DeleteCitizen,UpdateCitizen
 from controls.communes import Communes,CommunesList
 from controls.disticts import Disticts,DistictsList
@@ -51,7 +51,11 @@ def index():
 # api.add_resource(UserUpdate, "/userUpdate")
 # api.add_resource(UserInsert, "/userUpdate")
 # api.add_resource(UserLogin, "/userlogin")
+<<<<<<< HEAD
 # Hello word
+=======
+api.add_resource(IndexPage, "/")
+>>>>>>> b1c2d1654945078e0982d52fbf2ef13ab2147945
 #Authorities
 api.add_resource(AuthoritiesList, "/authoritieslist")
 api.add_resource(Authorities, "/authorities/<aid>")
