@@ -20,28 +20,28 @@ from controls.userroles import UserRoles,UserRolesList
 from controls.villages import Villages,VillagesList
 
 
-@app.route("/")
-def index():
-    return "Hello World"
+# @app.route("/")
+# def index():
+#     return "Hello World"
 
 
-@app.errorhandler(ValidationError)
-def handle_marshmallow_validation(err):
-    return {"msg":err.messages}, 400
+# @app.errorhandler(ValidationError)
+# def handle_marshmallow_validation(err):
+#     return {"msg":err.messages}, 400
 
-jwt = JWTManager(app)
+# jwt = JWTManager(app)
 
 
-@jwt.token_in_blocklist_loader
-def check_if_token_in_blacklist(jwt_header, jwt_payload: dict):
-    jti = jwt_payload["jti"]
-    return jti in BLACKLIST
+# @jwt.token_in_blocklist_loader
+# def check_if_token_in_blacklist(jwt_header, jwt_payload: dict):
+#     jti = jwt_payload["jti"]
+#     return jti in BLACKLIST
 
 
 # jwt token
-api.add_resource(WsUserLogin, "/wslogin")
-api.add_resource(WsTokenRefresh, "/wsrefresh")
-api.add_resource(WsUserLogout, "/wslogout")
+# api.add_resource(WsUserLogin, "/wslogin")
+# api.add_resource(WsTokenRefresh, "/wsrefresh")
+# api.add_resource(WsUserLogout, "/wslogout")
 
 api.add_resource(IndexPage, "/")
 

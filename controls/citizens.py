@@ -1,6 +1,7 @@
 from flask_jwt_extended import (
     
-    JWTManager,jwt_required
+    JWTManager
+    # ,jwt_required
     
 )
 from flask import jsonify
@@ -13,7 +14,7 @@ jwt = JWTManager(app)
 
 class Citizens(Resource):
     @classmethod
-    @jwt_required()
+    # @jwt_required()
     def get(cls,cid=None):
         try:  
             data = tbcitizens.find_by_cid(cid)
@@ -26,7 +27,7 @@ class Citizens(Resource):
 
 class DeleteCitizen(Resource):
     @classmethod
-    @jwt_required()
+    # @jwt_required()
     def post(cls):
         try:
             
@@ -42,7 +43,7 @@ class DeleteCitizen(Resource):
 
 class UpdateCitizenParty(Resource):
     @classmethod
-    @jwt_required()
+    # @jwt_required()
     def post(cls):
         try:
             data = request.get_json()
@@ -74,7 +75,7 @@ class UpdateCitizenParty(Resource):
             return {"msg":err} 
 class UpdateCitizen(Resource):
     @classmethod
-    @jwt_required()
+    # @jwt_required()
     def post(cls):
         try:
             data = request.get_json()
@@ -107,7 +108,7 @@ class UpdateCitizen(Resource):
 
 class InsertCitizen(Resource):
     @classmethod
-    @jwt_required()
+    # @jwt_required()
     def post(cls):
         try:
             data = request.get_json()
@@ -141,7 +142,7 @@ class InsertCitizen(Resource):
 
 class CitizensList(Resource):
     @classmethod
-    @jwt_required()
+    # @jwt_required()
     def get(cls):
         try:
             data = tbcitizens.query.all()

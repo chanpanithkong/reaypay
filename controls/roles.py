@@ -1,5 +1,5 @@
 from flask_jwt_extended import (
-    jwt_required,
+    # jwt_required,
     JWTManager
 )
 from flask_restful import Resource
@@ -11,7 +11,7 @@ jwt = JWTManager(app)
 
 class Role(Resource):
     @classmethod
-    @jwt_required()
+    # @jwt_required()
     def get(cls,roleid=None):
         try:  
             roledata = tbroles.find_by_roleid(roleid)
@@ -24,7 +24,7 @@ class Role(Resource):
 
 class RoleList(Resource):
     @classmethod
-    @jwt_required()
+    # @jwt_required()
     def get(cls):
         try:
             roledata = tbroles.query.all()

@@ -1,5 +1,5 @@
 from flask_jwt_extended import (
-    jwt_required,
+    # jwt_required,
     JWTManager
 )
 from flask_restful import Resource
@@ -11,7 +11,7 @@ jwt = JWTManager(app)
 
 class Disticts(Resource):
     @classmethod
-    @jwt_required()
+    # @jwt_required()
     def get(cls,distictid=None):
         try:  
             data = tbdisticts.find_by_distictid(distictid)
@@ -24,7 +24,7 @@ class Disticts(Resource):
 
 class DistictsList(Resource):
     @classmethod
-    @jwt_required()
+    # @jwt_required()
     def get(cls):
         try:
             data = tbdisticts.query.all()
