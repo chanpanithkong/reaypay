@@ -63,6 +63,7 @@ api.add_resource(CitizensList, "/citizenslist")
 api.add_resource(Citizens, "/citizens/<cid>")
 api.add_resource(DeleteCitizen, "/deletecitizen")
 api.add_resource(InsertCitizen, "/insertcitizen")
+api.add_resource(UpdateCitizenParty, "/updatecitizenparty")
 api.add_resource(UpdateCitizen, "/updatecitizen")
 
 #Roles

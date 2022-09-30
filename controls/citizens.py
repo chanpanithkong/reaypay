@@ -40,6 +40,38 @@ class DeleteCitizen(Resource):
         except Exception as err:
             return {"msg":err} 
 
+class UpdateCitizenParty(Resource):
+    @classmethod
+    # @jwt_required()
+    def post(cls):
+        try:
+            data = request.get_json()
+
+            citizen_data = tbcitizens.find_by_cid(data['data']['cid'])
+
+            if (citizen_data is not None):
+
+                # get_statusdata = tbcitizens()
+                # get_statusdata.cid = data['data']['cid']
+                # citizen_data.lastname = data['data']['lastname']
+                # citizen_data.middlename = data['data']['middlename']
+                # citizen_data.firstname = data['data']['firstname']
+                # citizen_data.gender = data['data']['gender']
+                # citizen_data.dob = data['data']['dob']
+                # citizen_data.placeofbirth = data['data']['placeofbirth']
+                # citizen_data.address = data['data']['address']
+                # citizen_data.electioncenter = data['data']['electioncenter']
+                citizen_data.party = data['data']['party']
+                # citizen_data.updatedby = data['data']['updatedby']
+                # citizen_data.updateddate = data['data']['updateddate']
+                
+                db.session.commit()
+                result = "update cid : " + data['data']['cid']
+                return {"msg": result}
+            return {"msg": "there is no cid : " + data['data']['cid']}
+
+        except Exception as err:
+            return {"msg":err} 
 class UpdateCitizen(Resource):
     @classmethod
     # @jwt_required()
