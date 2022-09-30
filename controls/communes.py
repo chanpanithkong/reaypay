@@ -11,7 +11,7 @@ jwt = JWTManager(app)
 
 class Communes(Resource):
     @classmethod
-    # @jwt_required()
+    @jwt_required()
     def get(cls,communeid=None):
         try:  
             data = tbcommunes.find_by_communeid(communeid)
@@ -24,7 +24,7 @@ class Communes(Resource):
 
 class CommunesList(Resource):
     @classmethod
-    # @jwt_required()
+    @jwt_required()
     def get(cls):
         try:
             data = tbcommunes.query.all()

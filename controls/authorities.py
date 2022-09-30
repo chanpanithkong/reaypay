@@ -11,7 +11,7 @@ jwt = JWTManager(app)
 
 class Authorities(Resource):
     @classmethod
-    # @jwt_required()
+    @jwt_required()
     def get(cls,userid=None):
         try:  
             data = tbauthorities.find_by_userid(userid)
@@ -24,7 +24,7 @@ class Authorities(Resource):
 
 class AuthoritiesList(Resource):
     @classmethod
-    # @jwt_required()
+    @jwt_required()
     def get(cls):
         try:
             data = tbauthorities.query.all()

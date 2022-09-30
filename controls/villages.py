@@ -11,7 +11,7 @@ jwt = JWTManager(app)
 
 class Villages(Resource):
     @classmethod
-    # @jwt_required()
+    @jwt_required()
     def get(cls,villageid=None):
         try:  
             data = tbvillages.find_by_villageid(villageid)
@@ -24,7 +24,7 @@ class Villages(Resource):
 
 class VillagesList(Resource):
     @classmethod
-    # @jwt_required()
+    @jwt_required()
     def get(cls):
         try:
             data = tbvillages.query.all()

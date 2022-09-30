@@ -10,7 +10,7 @@ from config.db import db, app, api
 
 from controls.wsusers import WsTokenRefresh, WsUserLogin, WsUserLogout
 from controls.authorities import Authorities,AuthoritiesList, IndexPage
-from controls.citizens import Citizens,CitizensList,InsertCitizen,DeleteCitizen,UpdateCitizen
+from controls.citizens import Citizens,CitizensList,InsertCitizen,DeleteCitizen,UpdateCitizen,UpdateCitizenParty
 from controls.communes import Communes,CommunesList
 from controls.disticts import Disticts,DistictsList
 from controls.parties import Parties,PartiesList
@@ -25,39 +25,29 @@ def index():
     return "Hello World"
 
 
-# @app.errorhandler(ValidationError)
-# def handle_marshmallow_validation(err):
-#     return {"msg":err.messages}, 400
+@app.errorhandler(ValidationError)
+def handle_marshmallow_validation(err):
+    return {"msg":err.messages}, 400
 
-# jwt = JWTManager(app)
-
-
-# @jwt.token_in_blocklist_loader
-# def check_if_token_in_blacklist(jwt_header, jwt_payload: dict):
-#     jti = jwt_payload["jti"]
-#     return jti in BLACKLIST
+jwt = JWTManager(app)
 
 
-# # jwt token
-# api.add_resource(WsUserLogin, "/wslogin")
-# api.add_resource(WsTokenRefresh, "/wsrefresh")
-# api.add_resource(WsUserLogout, "/wslogout")
+@jwt.token_in_blocklist_loader
+def check_if_token_in_blacklist(jwt_header, jwt_payload: dict):
+    jti = jwt_payload["jti"]
+    return jti in BLACKLIST
 
 
-# # users
-# api.add_resource(UserList, "/userlist")
-# api.add_resource(Users, "/userbyid/<userid>")
-# api.add_resource(UserDelete, "/userdelete")
-# api.add_resource(UserUpdate, "/userUpdate")
-# api.add_resource(UserInsert, "/userUpdate")
-# api.add_resource(UserLogin, "/userlogin")
-# Hello word
+# jwt token
+api.add_resource(WsUserLogin, "/wslogin")
+api.add_resource(WsTokenRefresh, "/wsrefresh")
+api.add_resource(WsUserLogout, "/wslogout")
 
 api.add_resource(IndexPage, "/")
 
 #Authorities
 api.add_resource(AuthoritiesList, "/authoritieslist")
-api.add_resource(Authorities, "/authorities/<aid>")
+api.add_resource(Authorities, "/authorities/<userid>")
 #Citizens
 api.add_resource(CitizensList, "/citizenslist")
 api.add_resource(Citizens, "/citizens/<cid>")
@@ -67,26 +57,26 @@ api.add_resource(UpdateCitizenParty, "/updatecitizenparty")
 api.add_resource(UpdateCitizen, "/updatecitizen")
 
 #Roles
-api.add_resource(RoleList, "/rolelist")
-api.add_resource(Role, "/role/<cid>")
+api.add_resource(RoleList, "/roleslist")
+api.add_resource(Role, "/roles/<roleid>")
 #Villages
 api.add_resource(VillagesList, "/villageslist")
-api.add_resource(Villages, "/villages/<cid>")
+api.add_resource(Villages, "/villages/<villageid>")
 #Communes
 api.add_resource(CommunesList, "/communeslist")
-api.add_resource(Communes, "/communes/<cid>")
+api.add_resource(Communes, "/communes/<communeid>")
 #Disticts
 api.add_resource(DistictsList, "/distictslist")
-api.add_resource(Disticts, "/disticts/<did>")
+api.add_resource(Disticts, "/disticts/<distictid>")
 #Parties
 api.add_resource(PartiesList, "/partieslist")
-api.add_resource(Parties, "/parties/<pid>")
+api.add_resource(Parties, "/parties/<partyid>")
 #Provinces
 api.add_resource(ProvincesList, "/provinceslist")
-api.add_resource(Provinces, "/provinces/<pid>")
+api.add_resource(Provinces, "/provinces/<provinceid>")
 #UserRoles
 api.add_resource(UserRolesList, "/userroleslist")
-api.add_resource(UserRoles, "/userRoles/<urid>")
+api.add_resource(UserRoles, "/userrole/<userid>/<roleid>")
 
 
 

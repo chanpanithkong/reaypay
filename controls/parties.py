@@ -11,7 +11,7 @@ jwt = JWTManager(app)
 
 class Parties(Resource):
     @classmethod
-    # @jwt_required()
+    @jwt_required()
     def get(cls,partyid=None):
         try:  
             data = tbparties.find_by_partyid(partyid)
@@ -24,7 +24,7 @@ class Parties(Resource):
 
 class PartiesList(Resource):
     @classmethod
-    # @jwt_required()
+    @jwt_required()
     def get(cls):
         try:
             data = tbparties.query.all()

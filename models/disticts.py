@@ -12,5 +12,5 @@ class tbdisticts(db.Model):
         self.provinceid = provinceid
         
     @classmethod
-    def find_by_distictid(cls, communeid) -> "tbdisticts":
-        return cls.query.filter_by(communeid=communeid).first()
+    def find_by_distictid(cls, distictid) -> "tbdisticts":
+        return cls.query.filter_by(distictid=distictid).first()

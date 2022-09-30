@@ -11,7 +11,7 @@ jwt = JWTManager(app)
 
 class UserRoles(Resource):
     @classmethod
-    # @jwt_required()
+    @jwt_required()
     def get(cls,userid=None,roleid=None):
         try:  
             data = tbuserroles.find_by_useridroleid(userid,roleid)
@@ -24,7 +24,7 @@ class UserRoles(Resource):
 
 class UserRolesList(Resource):
     @classmethod
-    # @jwt_required()
+    @jwt_required()
     def get(cls):
         try:
             roledata = tbuserroles.query.all()
