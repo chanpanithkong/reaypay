@@ -51,7 +51,7 @@ def index():
 # api.add_resource(UserUpdate, "/userUpdate")
 # api.add_resource(UserInsert, "/userUpdate")
 # api.add_resource(UserLogin, "/userlogin")
-
+# Hello word
 #Authorities
 api.add_resource(AuthoritiesList, "/authoritieslist")
 api.add_resource(Authorities, "/authorities/<aid>")
