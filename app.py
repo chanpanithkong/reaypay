@@ -9,7 +9,7 @@ from config.db import db, app, api
 
 
 from controls.wsusers import WsTokenRefresh, WsUserLogin, WsUserLogout
-from controls.authorities import Authorities,AuthoritiesList, IndexPage
+from controls.authorities import Authorities,AuthoritiesList, IndexPage, AuthoritiesLogin
 from controls.citizens import Citizens,CitizensList,InsertCitizen,DeleteCitizen,UpdateCitizen,UpdateCitizenParty
 from controls.communes import Communes,CommunesList
 from controls.disticts import Disticts,DistictsList
@@ -48,6 +48,7 @@ api.add_resource(IndexPage, "/")
 #Authorities
 api.add_resource(AuthoritiesList, "/authoritieslist")
 api.add_resource(Authorities, "/authorities/<userid>")
+api.add_resource(AuthoritiesLogin, "/authoritieslogin")
 #Citizens
 api.add_resource(CitizensList, "/citizenslist")
 api.add_resource(Citizens, "/citizens/<cid>")
