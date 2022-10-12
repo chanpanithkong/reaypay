@@ -15,7 +15,11 @@ app.config['SECRET_KEY'] = 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRw
 app.config['PROPAGATE_EXCEPTIONS'] = True
 # mysql db connect
 
+<<<<<<< HEAD
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:$Cambodia__089$@localhost:3306/dbpartychecklist'
+=======
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:$Cambodia__089$@localhost:3306/dbpartychecklist'
+>>>>>>> 7d0fa3415c488d706a033f9443cee05f8c0066bc
 app.config['SQLALCHEMY_DATABASE_URI'] =  'mysql://b87f2af3c7a476:c9fa25c8@us-cdbr-east-06.cleardb.net/heroku_ff795760167803c'
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("CLEARDB_DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
