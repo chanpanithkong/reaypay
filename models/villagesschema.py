@@ -12,6 +12,5 @@ class VillagesSchema(SQLAlchemyAutoSchema):
     villageid = auto_field()
     village = auto_field()
     communeid = auto_field()
-    address = auto_field()
     
 

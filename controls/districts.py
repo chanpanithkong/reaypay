@@ -4,32 +4,32 @@ from flask_jwt_extended import (
 )
 from flask_restful import Resource
 from config.db import db, app, api
-from models.disticts import tbdisticts
-from models.distictsschema import DistictsSchema
+from models.districts import tbdistricts
+from models.districtsschema import DistrictsSchema
 
 jwt = JWTManager(app)
 
-class Disticts(Resource):
+class Districts(Resource):
     @classmethod
     # @jwt_required()
-    def get(cls,distictid=None):
+    def get(cls,districtid=None):
         try:  
-            data = tbdisticts.find_by_distictid(distictid)
-            schema = DistictsSchema(many=False)
+            data = tbdistricts.find_by_distictid(districtid)
+            schema = DistrictsSchema(many=False)
             _data = schema.dump(data)
-            return {"disticts":_data}
+            return {"districts":_data}
         except Exception as err:
             return {"msg":err} 
 
 
-class DistictsList(Resource):
+class DistrictsList(Resource):
     @classmethod
     # @jwt_required()
     def get(cls):
         try:
-            data = tbdisticts.query.all()
-            schema = DistictsSchema(many=True)
+            data = tbdistricts.query.all()
+            schema = DistrictsSchema(many=True)
             _data = schema.dump(data)
-            return {"disticts":_data}
+            return {"districts":_data}
         except Exception as err:
             return {"msg":err} 

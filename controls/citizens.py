@@ -145,8 +145,11 @@ class CitizensList(Resource):
     # @jwt_required()
     def get(cls):
         try:
+            print(1)
             data = tbcitizens.query.all()
+            print(2)
             schema = CitizensSchema(many=True)
+            print(3)
             _data = schema.dump(data)
             return {"citizens":_data}
         except Exception as err:

@@ -12,7 +12,7 @@ from controls.wsusers import WsTokenRefresh, WsUserLogin, WsUserLogout
 from controls.authorities import Authorities,AuthoritiesList, IndexPage, AuthoritiesLogin
 from controls.citizens import Citizens,CitizensList,InsertCitizen,DeleteCitizen,UpdateCitizen,UpdateCitizenParty
 from controls.communes import Communes,CommunesList
-from controls.disticts import Disticts,DistictsList
+from controls.districts import Districts,DistrictsList
 from controls.parties import Parties,PartiesList
 from controls.provinces import Provinces,ProvincesList
 from controls.roles import Role,RoleList
@@ -67,8 +67,8 @@ api.add_resource(Villages, "/villages/<villageid>")
 api.add_resource(CommunesList, "/communeslist")
 api.add_resource(Communes, "/communes/<communeid>")
 #Disticts
-api.add_resource(DistictsList, "/distictslist")
-api.add_resource(Disticts, "/disticts/<distictid>")
+api.add_resource(DistrictsList, "/distictslist")
+api.add_resource(Districts, "/disticts/<distictid>")
 #Parties
 api.add_resource(PartiesList, "/partieslist")
 api.add_resource(Parties, "/parties/<partyid>")

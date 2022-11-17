@@ -1,4 +1,3 @@
-from sqlite3 import paramstyle
 from config.db import db
 
 class tbcitizens(db.Model):
@@ -10,14 +9,25 @@ class tbcitizens(db.Model):
     gender = db.Column(db.String)
     dob = db.Column(db.DateTime)
     placeofbirth = db.Column(db.String)
-    address = db.Column(db.String)
     electioncenter = db.Column(db.String)
     party = db.Column(db.String)
     updatedby = db.Column(db.Integer)
     updateddate = db.Column(db.DateTime)
+    joinpartydate = db.Column(db.DateTime)
+    position = db.Column(db.String)
+    partyposition = db.Column(db.String)
+    education = db.Column(db.String)
+    nationality = db.Column(db.String)
+    partystatus = db.Column(db.String)
+    haspartycard = db.Column(db.Integer)
+    provinceid = db.Column(db.Integer)
+    districtid = db.Column(db.Integer)
+    communeid = db.Column(db.Integer)
+    villageid = db.Column(db.Integer)
+    address = db.Column(db.String)
+    
 
-
-    def __init__(self, cid=None, firstname=None, middlename=None, lastname=None, gender = None, dob = None, placeofbirth = None, address=None, electioncenter=None, party=None, updatedby=None, updateddate=None):
+    def __init__(self, cid=None, firstname=None, middlename=None, lastname=None, gender = None, dob = None, placeofbirth = None, electioncenter=None, party=None, updatedby=None, updateddate=None, joinpartydate=None, position=None,partyposition=None,education=None,nationality=None,partystatus=None,haspartycard=None, provinceid=None, districtid=None, communeid=None,villageid=None,address=None):
         self.cid = cid
         self.firstname = firstname
         self.middlename = middlename
@@ -25,12 +35,23 @@ class tbcitizens(db.Model):
         self.gender = gender
         self.dob = dob
         self.placeofbirth = placeofbirth
-        self.address = address
         self.electioncenter = electioncenter
         self.party = party
         self.updatedby = updatedby
         self.updateddate = updateddate
-
+        self.joinpartydate = joinpartydate
+        self.position = position
+        self.partyposition = partyposition
+        self.education = education
+        self.nationality = nationality
+        self.partystatus = partystatus
+        self.haspartycard = haspartycard
+        self.provinceid = provinceid
+        self.districtid = districtid
+        self.communeid = communeid
+        self.villageid = villageid
+        self.address = address
+        
     @classmethod
     def find_by_cid(cls, cid) -> "tbcitizens":
         return cls.query.filter_by(cid=cid).first()
