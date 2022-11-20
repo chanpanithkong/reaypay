@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api
+from urllib.parse import quote 
 
 # app = Flask(__name__, template_folder='templates')
 app = Flask(__name__)
@@ -19,7 +20,14 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 #cleardb
 #app.config['SQLALCHEMY_DATABASE_URI'] =  'mysql://b26aadaf3595c9:ec5703a5@us-cdbr-east-06.cleardb.net/heroku_fe380b29b8d54aa'
 #bongsithdb
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://phanith:@Phan1tH@@13.230.198.156:3306/phanith'
+
+url = quote('13.230.198.156')
+port =  quote('3306')
+username = quote('phanith')
+password =  quote('@Phan1tH@')
+mysqldb = quote('phanith')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + username + ':' + password + '@' + url + ':' + port + '/' + mysqldb
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("CLEARDB_DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
