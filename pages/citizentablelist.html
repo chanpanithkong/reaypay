@@ -274,7 +274,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="/">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -345,7 +345,7 @@
                     <td>{{ c.gender }}</td>
                     <td>{{ c.dob }}</td>
                     <td>{{ c.electioncenter }}</td>
-                    <td><span class="badge bg-primary">{{ c.party }}</span></td>
+                    <td><span class="badge bg-primary">{{ part.find_by_partyid(c.party).party }}</span></td>
                     <td><span class="badge border-primary border-1 text-primary"><a href="/citizendataedit/{{ c.cid }}" >Edit</a></span>|<span class="badge border-danger border-1 text-danger">Delete</span></td>
                   </tr>
                   {% endfor  %}

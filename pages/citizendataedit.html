@@ -274,7 +274,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="/">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -341,9 +341,14 @@
 
                 <div class="col-md-4">
                   <label for="inputState" class="form-label">Gender</label>
-                  <select id="inputState" class="form-select">
-                    <option selected value="1">Female</option>
-                    <option value="2">Male</option>
+                  <select id="inputState" class="form-select">.
+                    {% if c.gender == 'Female' %}
+                    <option selected value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    {% else %}
+                    <option value="Female">Female</option>
+                    <option selected value="Male">Male</option>
+                    {% endif %}
                   </select>
                 </div>
                 <div class="col-md-4">
@@ -352,11 +357,24 @@
                 </div>
                 <div class="col-md-4">
                   <label for="inputZip" class="form-label">Party</label>
-                  <input type="text" class="form-control" id="inputZip" placeholder="Please fill your party" value="{{c.party}}">
+                  <select id="inputState" class="form-select">
+                    {% for p in partylist %}
+                    {% if c.party==p.partyid %}
+                      <option selected value="{{p.partyid}}">{{p.party}}</option>
+                    {% else %}
+                      <option value="{{p.partyid}}">{{p.party}}</option>
+                    {% endif %}
+                    {% endfor %}
+                  </select>
+
                 </div>
-                <div class="col-12">
+                <div class="col-md-4">
+                  <label for="inputZip" class="form-label">Date of Birth</label>
+                  <input type="date" class="form-control" id="inputZip" value="{{c.dob}}">
+                </div>
+                <div class="col-8">
                   <label for="inputAddress5" class="form-label">Place of Birth</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Please fill your place of birth" value="{{c.dob}}">
+                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Please fill your place of birth" value="{{c.placeofbirth}}">
                 </div>
                 <div class="col-md-4">
                   <label for="inputCity" class="form-label">Position</label>
@@ -381,7 +399,11 @@
                 <div class="col-4">
                   <label for="inputCity" class="form-label">Do you have party card ?</label>
                   <div class="form-check">
+                    {% if c.haspartycard == 1 %}
+                      <input class="form-check-input" checked type="checkbox" id="gridCheck">
+                    {% else %}
                     <input class="form-check-input" type="checkbox" id="gridCheck">
+                    {% endif %}
                     <label class="form-check-label" for="gridCheck">
                       Yes, I have
                     </label>
@@ -457,11 +479,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
-  <script>
-    $( ".datepicker" ).datepicker({
-      format: 'yyyy-mm-dd'
-    });
-  </script>
+  
 </body>
 
 </html>

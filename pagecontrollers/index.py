@@ -8,13 +8,14 @@ from models.authorities import tbauthorities
 from models.authoritiesschema import AuthoritiesSchema
 from flask import make_response, render_template
 from models.citizens import  tbcitizens
-
+from models.parties import tbparties
 
 class IndexPage(Resource):
     @classmethod
     def get(cls):
         headers = {'Content-Type': 'text/html'}
-        return make_response(render_template('index.html'), 200, headers)
+        partylist = tbparties.query.all()
+        return make_response(render_template('index.html',partylist=partylist), 200, headers)
 
 class LoginPage(Resource):
     @classmethod
@@ -27,7 +28,9 @@ class CitizenTableList(Resource):
     def get(cls):
         headers = {'Content-Type': 'text/html'}
         citizenslist = tbcitizens.query.all()
-        return make_response(render_template('citizentablelist.html',title='Home',citizenslist = citizenslist), 200, headers)
+        part = tbparties
+        # print(part.find_by_partyid(1).party)
+        return make_response(render_template('citizentablelist.html',title='Home',citizenslist = citizenslist, part=part), 200, headers)
 
 class CitizentDataEntry(Resource):
     @classmethod
@@ -40,5 +43,6 @@ class CitizentDataEdit(Resource):
     def get(cls,cid=None):
         headers = {'Content-Type': 'text/html'}
         citizen = tbcitizens.find_by_cid(cid)
-        return make_response(render_template('citizendataedit.html',c=citizen), 200, headers)
+        partylist = tbparties.query.all()
+        return make_response(render_template('citizendataedit.html',c=citizen,partylist=partylist), 200, headers)
         
