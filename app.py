@@ -4,7 +4,7 @@ from flask_restful import Api
 from marshmallow import ValidationError
 from flask_jwt_extended import JWTManager
 from blacklist import BLACKLIST
-
+from urllib.parse import quote 
 # from config.db import db, app, api
 
 
@@ -31,16 +31,16 @@ app.config['SECRET_KEY'] = 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRw
 #disable message error in internal system
 app.config['PROPAGATE_EXCEPTIONS'] = True
 # mysql db connect
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:$Cambodia__089$@localhost:3306/dbpartychecklist'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:$Cambodia__089$@localhost:3306/dbpartychecklist'
 #cleardb
 #app.config['SQLALCHEMY_DATABASE_URI'] =  'mysql://b26aadaf3595c9:ec5703a5@us-cdbr-east-06.cleardb.net/heroku_fe380b29b8d54aa'
 #bongsithdb
-# url = quote('13.230.198.156')
-# port =  quote('3306')
-# username = quote('phanith')
-# password =  quote('@Phan1tH@')
-# mysqldb = quote('phanith')
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + username + ':' + password + '@' + url + ':' + port + '/' + mysqldb
+url = quote('13.230.198.156')
+port =  quote('3306')
+username = quote('phanith')
+password =  quote('@Phan1tH@')
+mysqldb = quote('phanith')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + username + ':' + password + '@' + url + ':' + port + '/' + mysqldb
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("CLEARDB_DATABASE_URL")
 
