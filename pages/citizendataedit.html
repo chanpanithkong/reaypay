@@ -173,7 +173,7 @@
 
             <li class="message-item">
               <a href="#">
-                '<img src="{{ url_for('static', filename='assets/img/messages-2.jpg') }}" alt="" class="rounded-circle">
+                <img src="{{ url_for('static', filename='assets/img/messages-2.jpg') }}" alt="" class="rounded-circle">
                 <div>
                   <h4>Anna Nelson</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -305,63 +305,125 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>General Tables</h1>
+      <h1>Form Layouts</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">General</li>
+          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item active">Layouts</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
+
+          
+
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Table with hoverable rows</h5>
+              <h5 class="card-title">Citizen Data Management</h5>
 
-              <!-- Table with hoverable rows -->
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Date of Birth</th>
-                    <th scope="col">Election Center</th>
-                    <th scope="col">Party</th>
-                    <th scope="col">###</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for c in citizenslist  %}
-                  <tr>
-                    <th scope="row"><span class="badge bg-warning text-dark">{{ c.cid }}</span></th>
-                    <td><span class="badge bg-success">{{ c.firstname }}</span></td>
-                    <td><span class="badge bg-success">{{ c.lastname }}</span></td>
-                    <td>{{ c.gender }}</td>
-                    <td>{{ c.dob }}</td>
-                    <td>{{ c.electioncenter }}</td>
-                    <td><span class="badge bg-primary">{{ c.party }}</span></td>
-                    <td><span class="badge border-primary border-1 text-primary"><a href="/citizendataedit/{{ c.cid }}" >Edit</a></span>|<span class="badge border-danger border-1 text-danger">Delete</span></td>
-                  </tr>
-                  {% endfor  %}
-                </tbody>
-              </table>
-              <!-- End Table with hoverable rows -->
+              <!-- Multi Columns Form -->
+              <form class="row g-3">
+                <div class="col-md-12">
+                  <label for="inputName5" class="form-label">Citizen ID</label>
+                  <input type="text" class="form-control" id="inputName5" placeholder="Please fill your citizen id" value="{{c.cid}}">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputEmail5" class="form-label">Last Name</label>
+                  <input type="email" class="form-control" id="inputEmail5" placeholder="Please fill your last name" value="{{c.lastname}}">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputPassword5" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="inputPassword5" placeholder="Please fill your first name" value="{{c.firstname}}">
+                </div>
+
+                <div class="col-md-4">
+                  <label for="inputState" class="form-label">Gender</label>
+                  <select id="inputState" class="form-select">
+                    <option selected value="1">Female</option>
+                    <option value="2">Male</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="inputCity" class="form-label">Election Center</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your election center" value="{{c.electioncenter}}">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputZip" class="form-label">Party</label>
+                  <input type="text" class="form-control" id="inputZip" placeholder="Please fill your party" value="{{c.party}}">
+                </div>
+                <div class="col-12">
+                  <label for="inputAddress5" class="form-label">Place of Birth</label>
+                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Please fill your place of birth" value="{{c.dob}}">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputCity" class="form-label">Position</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your position" value="{{c.position}}">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputZip" class="form-label">Position in Party</label>
+                  <input type="text" class="form-control" id="inputZip" placeholder="Please fill your party position" value="{{c.partyposition}}">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputZip" class="form-label">Join Party Date</label>
+                  <input type="date" class="form-control" id="inputZip" value="{{c.joinpartydate}}">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputZip" class="form-label">Nationality</label>
+                  <input type="text" class="form-control" id="inputZip" placeholder="Please fill your nationality" value="{{c.nationality}}">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputCity" class="form-label">Party Status</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your party status" value="{{c.partystatus}}">
+                </div>
+                <div class="col-4">
+                  <label for="inputCity" class="form-label">Do you have party card ?</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Yes, I have
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="inputCity" class="form-label">Education</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your education" value="{{c.education}}">
+                </div>
+                <div class="col-md-3">
+                  <label for="inputCity" class="form-label">Province</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Province here" value="{{c.provinceid}}">
+                </div>
+                <div class="col-md-3">
+                  <label for="inputCity" class="form-label">District</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="District here" value="{{c.districtid}}">
+                </div>
+                <div class="col-md-3">
+                  <label for="inputCity" class="form-label">Commune</label >
+                  <input type="text" class="form-control" id="inputCity" placeholder="Commune here" value="{{c.communeid}}">
+                </div>
+                <div class="col-md-3">
+                  <label for="inputCity" class="form-label">Village</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Village here" value="{{c.villageid}}">
+                </div>
+                <div class="col-md-12">
+                  <label for="inputCity" class="form-label">Current Address</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your current address" value="{{c.address}}">
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+              </form><!-- End Multi Columns Form -->
 
             </div>
           </div>
 
-          
-          
-
-          
-
         </div>
+
+        
       </div>
     </section>
 
@@ -384,18 +446,22 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="static/assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="static/assets/vendor/chart.js/chart.min.js"></script>
-  <script src="static/assets/vendor/echarts/echarts.min.js"></script>
-  <script src="static/assets/vendor/quill/quill.min.js"></script>
-  <script src="static/assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="static/assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/chart.js/chart.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/echarts/echarts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/quill/quill.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/tinymce/tinymce.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
 
   <!-- Template Main JS File -->
-  <script src="static/assets/js/main.js"></script>
-
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  <script>
+    $( ".datepicker" ).datepicker({
+      format: 'yyyy-mm-dd'
+    });
+  </script>
 </body>
 
 </html>

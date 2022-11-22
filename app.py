@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api
 from marshmallow import ValidationError
@@ -19,7 +19,7 @@ from controls.roles import Role,RoleList
 from controls.userroles import UserRoles,UserRolesList
 from controls.villages import Villages,VillagesList
 
-from pagecontrollers.index import IndexPage, LoginPage, CitizenTableList, CitizentDataEntry
+from pagecontrollers.index import IndexPage, LoginPage, CitizenTableList, CitizentDataEntry, CitizentDataEdit
 
 
 # config file
@@ -31,16 +31,16 @@ app.config['SECRET_KEY'] = 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRw
 #disable message error in internal system
 app.config['PROPAGATE_EXCEPTIONS'] = True
 # mysql db connect
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:$Cambodia__089$@localhost:3306/dbpartychecklist'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:$Cambodia__089$@localhost:3306/dbpartychecklist'
 #cleardb
 #app.config['SQLALCHEMY_DATABASE_URI'] =  'mysql://b26aadaf3595c9:ec5703a5@us-cdbr-east-06.cleardb.net/heroku_fe380b29b8d54aa'
 #bongsithdb
-url = quote('13.230.198.156')
-port =  quote('3306')
-username = quote('phanith')
-password =  quote('@Phan1tH@')
-mysqldb = quote('phanith')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + username + ':' + password + '@' + url + ':' + port + '/' + mysqldb
+# url = quote('13.230.198.156')
+# port =  quote('3306')
+# username = quote('phanith')
+# password =  quote('@Phan1tH@')
+# mysqldb = quote('phanith')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + username + ':' + password + '@' + url + ':' + port + '/' + mysqldb
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("CLEARDB_DATABASE_URL")
 
@@ -48,17 +48,14 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 DEBUG = True
 db = SQLAlchemy(app)
 
-
-# api = Api(app)
-
 # @app.route("/")
 # def index():
 #     return "Hello World"
 
 
-# @app.errorhandler(ValidationError)
-# def handle_marshmallow_validation(err):
-#     return {"msg":err.messages}, 400
+@app.errorhandler(404)
+def page_not_found(err):
+    return render_template('404.html')
 
 # jwt = JWTManager(app)
 
@@ -78,6 +75,20 @@ api.add_resource(IndexPage, "/")
 api.add_resource(LoginPage, "/login")
 api.add_resource(CitizenTableList, "/citizentablelist")
 api.add_resource(CitizentDataEntry, "/citizendataentry")
+api.add_resource(CitizentDataEdit, "/citizendataedit/<cid>")
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Authorities
 api.add_resource(AuthoritiesList, "/authoritieslist")
 api.add_resource(Authorities, "/authorities/<userid>")
@@ -111,11 +122,6 @@ api.add_resource(Provinces, "/provinces/<provinceid>")
 #UserRoles
 api.add_resource(UserRolesList, "/userroleslist")
 api.add_resource(UserRoles, "/userrole/<userid>/<roleid>")
-
-#hellow world
-# @app.route("/")
-# def index():
-#     return render_template('index.html')
 
 if __name__ == "__main__":
     db.init_app(app)

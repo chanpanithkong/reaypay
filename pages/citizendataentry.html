@@ -10,24 +10,24 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="static/assets/img/favicon.png" rel="icon">
-  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i') }}" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="static/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="static/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="static/assets/css/style.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.1
@@ -44,7 +44,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="#" class="logo d-flex align-items-center">
-        <img src="static/assets/img/logo.png" alt="">
+        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="">
         <span class="d-none d-lg-block">NiceAdmin</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -159,7 +159,7 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="static/assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                <img src="{{ url_for('static', filename='assets/img/messages-1.jpg') }}" alt="" class="rounded-circle">
                 <div>
                   <h4>Maria Hudson</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -173,7 +173,7 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="static/assets/img/messages-2.jpg" alt="" class="rounded-circle">
+                <img src="{{ url_for('static', filename='assets/img/messages-2.jpg') }}" alt="" class="rounded-circle">
                 <div>
                   <h4>Anna Nelson</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -187,7 +187,7 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="static/assets/img/messages-3.jpg" alt="" class="rounded-circle">
+                <img src="{{ url_for('static', filename='assets/img/messages-3.jpg') }}" alt="" class="rounded-circle">
                 <div>
                   <h4>David Muldon</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -210,7 +210,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="static/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="{{ url_for('static', filename='assets/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -316,123 +316,102 @@
     </div><!-- End Page Title -->
     <section class="section">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
+
+          
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Horizontal Form</h5>
-
-              <!-- Horizontal Form -->
-              <form>
-                <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Your Name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText">
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail">
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword">
-                  </div>
-                </div>
-                <fieldset class="row mb-3">
-                  <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-                  <div class="col-sm-10">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                      <label class="form-check-label" for="gridRadios1">
-                        First radio
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                      <label class="form-check-label" for="gridRadios2">
-                        Second radio
-                      </label>
-                    </div>
-                    <div class="form-check disabled">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                      <label class="form-check-label" for="gridRadios3">
-                        Third disabled radio
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-                <div class="row mb-3">
-                  <div class="col-sm-10 offset-sm-2">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck1">
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="reset" class="btn btn-secondary">Reset</button>
-                </div>
-              </form><!-- End Horizontal Form -->
-
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Multi Columns Form</h5>
+              <h5 class="card-title">Citizen Data Management</h5>
 
               <!-- Multi Columns Form -->
               <form class="row g-3">
                 <div class="col-md-12">
-                  <label for="inputName5" class="form-label">Your Name</label>
-                  <input type="text" class="form-control" id="inputName5">
+                  <label for="inputName5" class="form-label">Citizen ID</label>
+                  <input type="text" class="form-control" id="inputName5" placeholder="Please fill your citizen id">
                 </div>
                 <div class="col-md-6">
-                  <label for="inputEmail5" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail5">
+                  <label for="inputEmail5" class="form-label">Last Name</label>
+                  <input type="email" class="form-control" id="inputEmail5" placeholder="Please fill your last name">
                 </div>
                 <div class="col-md-6">
-                  <label for="inputPassword5" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="inputPassword5">
+                  <label for="inputPassword5" class="form-label">First Name</label>
+                  <input type="password" class="form-control" id="inputPassword5" placeholder="Please fill your first name">
                 </div>
-                <div class="col-12">
-                  <label for="inputAddress5" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="1234 Main St">
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress2" class="form-label">Address 2</label>
-                  <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                </div>
-                <div class="col-md-6">
-                  <label for="inputCity" class="form-label">City</label>
-                  <input type="text" class="form-control" id="inputCity">
-                </div>
+
                 <div class="col-md-4">
-                  <label for="inputState" class="form-label">State</label>
+                  <label for="inputState" class="form-label">Gender</label>
                   <select id="inputState" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
+                    <option selected value="1">Female</option>
+                    <option value="2">Male</option>
                   </select>
                 </div>
-                <div class="col-md-2">
-                  <label for="inputZip" class="form-label">Zip</label>
-                  <input type="text" class="form-control" id="inputZip">
+                <div class="col-md-4">
+                  <label for="inputCity" class="form-label">Election Center</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your election center">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputZip" class="form-label">Party</label>
+                  <input type="text" class="form-control" id="inputZip" placeholder="Please fill your party">
                 </div>
                 <div class="col-12">
+                  <label for="inputAddress5" class="form-label">Place of Birth</label>
+                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Please fill your place of birth">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputCity" class="form-label">Position</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your position">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputZip" class="form-label">Position in Party</label>
+                  <input type="text" class="form-control" id="inputZip" placeholder="Please fill your party position">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputZip" class="form-label">Join Party Date</label>
+                  <input type="date" class="form-control" id="inputZip">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputZip" class="form-label">Nationality</label>
+                  <input type="text" class="form-control" id="inputZip" placeholder="Please fill your nationality">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputCity" class="form-label">Party Status</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your party status">
+                </div>
+                <div class="col-4">
+                  <label for="inputCity" class="form-label">Do you have party card ?</label>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gridCheck">
                     <label class="form-check-label" for="gridCheck">
-                      Check me out
+                      Yes, I have
                     </label>
                   </div>
                 </div>
+                <div class="col-md-12">
+                  <label for="inputCity" class="form-label">Education</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your education">
+                </div>
+                <div class="col-md-3">
+                  <label for="inputCity" class="form-label">Province</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Province here">
+                </div>
+                <div class="col-md-3">
+                  <label for="inputCity" class="form-label">District</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="District here">
+                </div>
+                <div class="col-md-3">
+                  <label for="inputCity" class="form-label">Commune</label >
+                  <input type="text" class="form-control" id="inputCity" placeholder="Commune here">
+                </div>
+                <div class="col-md-3">
+                  <label for="inputCity" class="form-label">Village</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Village here">
+                </div>
+                <div class="col-md-12">
+                  <label for="inputCity" class="form-label">Current Address</label>
+                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your current address">
+                </div>
+
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Submit</button>
                   <button type="reset" class="btn btn-secondary">Reset</button>
@@ -444,142 +423,7 @@
 
         </div>
 
-        <div class="col-lg-6">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Vertical Form</h5>
-
-              <!-- Vertical Form -->
-              <form class="row g-3">
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Your Name</label>
-                  <input type="text" class="form-control" id="inputNanme4">
-                </div>
-                <div class="col-12">
-                  <label for="inputEmail4" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4">
-                </div>
-                <div class="col-12">
-                  <label for="inputPassword4" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="inputPassword4">
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="reset" class="btn btn-secondary">Reset</button>
-                </div>
-              </form><!-- Vertical Form -->
-
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">No Labels / Placeholders as labels Form</h5>
-
-              <!-- No Labels Form -->
-              <form class="row g-3">
-                <div class="col-md-12">
-                  <input type="text" class="form-control" placeholder="Your Name">
-                </div>
-                <div class="col-md-6">
-                  <input type="email" class="form-control" placeholder="Email">
-                </div>
-                <div class="col-md-6">
-                  <input type="password" class="form-control" placeholder="Password">
-                </div>
-                <div class="col-12">
-                  <input type="text" class="form-control" placeholder="Address">
-                </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="City">
-                </div>
-                <div class="col-md-4">
-                  <select id="inputState" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                  </select>
-                </div>
-                <div class="col-md-2">
-                  <input type="text" class="form-control" placeholder="Zip">
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="reset" class="btn btn-secondary">Reset</button>
-                </div>
-              </form><!-- End No Labels Form -->
-
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Floating labels Form</h5>
-
-              <!-- Floating Labels Form -->
-              <form class="row g-3">
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingName">Your Name</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email">
-                    <label for="floatingEmail">Your Email</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"></textarea>
-                    <label for="floatingTextarea">Address</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="col-md-12">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingCity" placeholder="City">
-                      <label for="floatingCity">City</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-floating mb-3">
-                    <select class="form-select" id="floatingSelect" aria-label="State">
-                      <option selected>New York</option>
-                      <option value="1">Oregon</option>
-                      <option value="2">DC</option>
-                    </select>
-                    <label for="floatingSelect">State</label>
-                  </div>
-                </div>
-                <div class="col-md-2">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingZip" placeholder="Zip">
-                    <label for="floatingZip">Zip</label>
-                  </div>
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="reset" class="btn btn-secondary">Reset</button>
-                </div>
-              </form><!-- End floating Labels Form -->
-
-            </div>
-          </div>
-
-        </div>
+        
       </div>
     </section>
 
@@ -602,18 +446,22 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="static/assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="static/assets/vendor/chart.js/chart.min.js"></script>
-  <script src="static/assets/vendor/echarts/echarts.min.js"></script>
-  <script src="static/assets/vendor/quill/quill.min.js"></script>
-  <script src="static/assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="static/assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/chart.js/chart.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/echarts/echarts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/quill/quill.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/tinymce/tinymce.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
 
   <!-- Template Main JS File -->
-  <script src="static/assets/js/main.js"></script>
-
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  <script>
+    $( ".datepicker" ).datepicker({
+      format: 'yyyy-mm-dd'
+    });
+  </script>
 </body>
 
 </html>
