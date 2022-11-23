@@ -19,7 +19,7 @@ from controls.roles import Role,RoleList
 from controls.userroles import UserRoles,UserRolesList
 from controls.villages import Villages,VillagesList
 
-from pagecontrollers.index import IndexPage, LoginPage, CitizenTableList, CitizentDataEntry, CitizentDataEdit, CitizentAddData, CitizentUpdateData
+from pagecontrollers.index import IndexPage, LoginPage, CitizenTableList, CitizentDataEntry, CitizentDataEdit, CitizentAddData, CitizentUpdateData, CitizenTableListPrint
 
 
 # config file
@@ -39,6 +39,7 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 # username = quote('root')
 # password =  quote('$Cambodia__089$')
 # mysqldb = quote('dbpartychecklist')
+
 # bongsithdb
 url = quote('13.230.198.156')
 port =  quote('3306')
@@ -81,6 +82,8 @@ def page_not_found(err):
 api.add_resource(IndexPage, "/")
 api.add_resource(LoginPage, "/login")
 api.add_resource(CitizenTableList, "/citizentablelist")
+api.add_resource(CitizenTableListPrint, "/citizentablelistprint")
+
 api.add_resource(CitizentDataEntry, "/citizendataentry")
 api.add_resource(CitizentAddData, "/citizenadddata")
 

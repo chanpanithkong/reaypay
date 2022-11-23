@@ -6,9 +6,10 @@ from flask_restful import Resource, request
 from config.db import db, app, api
 from models.authorities import tbauthorities
 from models.authoritiesschema import AuthoritiesSchema
-from flask import make_response, render_template, redirect
+from flask import make_response, render_template, redirect, send_file
 from models.citizens import  tbcitizens
 from models.parties import tbparties
+from fpdf import FPDF, HTMLMixin
 
 import datetime
 
@@ -33,6 +34,26 @@ class CitizenTableList(Resource):
         part = tbparties
         # print(part.find_by_partyid(1).party)
         return make_response(render_template('citizentablelist.html',title='Home',citizenslist = citizenslist, part=part), 200, headers)
+
+class MyFPDF(FPDF, HTMLMixin):
+    pass
+
+class CitizenTableListPrint(Resource):
+    @classmethod
+    def get(cls):
+        headers = {'Content-Type': 'text/html'}
+        citizenslist = tbcitizens.query.all()
+        part = tbparties
+        
+        pdf = MyFPDF()
+        #First page
+        pdf.add_font('KhmerOS','','KhmerOS.ttf')
+        pdf.set_font('KhmerOS','',14)
+        pdf.add_page()
+        pdf.write_html("<p>test</p>")
+        pdf.output('mypdf.pdf','F')
+        path = "mypdf.pdf"
+        return send_file(path, as_attachment=True)
 
 class CitizentDataEntry(Resource):
     @classmethod
@@ -59,7 +80,7 @@ class CitizentUpdateData(Resource):
         
         citizen_data.electioncenter = CitizentAddData.convertNonetoNull(request.form.get('electioncenter'))
         citizen_data.party = CitizentAddData.convertNonetoNull(request.form.get('party'))
-        citizen_data.updatedby = CitizentAddData.convertNonetoNull(request.form.get('updatedby'))
+        citizen_data.updatedby = '1'
         citizen_data.updateddate = datetime.datetime.now()
         citizen_data.joinpartydate = datetime.datetime.now()
         citizen_data.position = CitizentAddData.convertNonetoNull(request.form.get('position'))
@@ -105,7 +126,7 @@ class CitizentAddData(Resource):
                 
                 get_statusdata.electioncenter = CitizentAddData.convertNonetoNull(request.form.get('electioncenter'))
                 get_statusdata.party = CitizentAddData.convertNonetoNull(request.form.get('party'))
-                get_statusdata.updatedby = CitizentAddData.convertNonetoNull(request.form.get('updatedby'))
+                get_statusdata.updatedby = '1'
                 get_statusdata.updateddate = datetime.datetime.now()
                 get_statusdata.joinpartydate = datetime.datetime.now()
                 get_statusdata.position = CitizentAddData.convertNonetoNull(request.form.get('position'))

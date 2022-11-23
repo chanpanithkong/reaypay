@@ -15,7 +15,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i') }}" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i') }}"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -210,7 +212,8 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{ url_for('static', filename='assets/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
+            <img src="{{ url_for('static', filename='assets/img/profile-img.jpg') }}" alt="Profile"
+              class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -282,7 +285,8 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Citizen Management</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>Citizen Management</span><i
+            class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -337,7 +341,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for c in citizenslist  %}
+                  {% for c in citizenslist %}
                   <tr>
                     <th scope="row"><span class="badge bg-warning text-dark">{{ c.cid }}</span></th>
                     <td><span class="badge bg-success">{{ c.firstname }}</span></td>
@@ -346,20 +350,29 @@
                     <td>{{ c.dob }}</td>
                     <td>{{ c.electioncenter }}</td>
                     <td><span class="badge bg-primary">{{ part.find_by_partyid(c.party).party }}</span></td>
-                    <td><span class="badge border-primary border-1 text-primary"><a href="/citizendataedit/{{ c.cid }}" >Edit</a></span>|<span class="badge border-danger border-1 text-danger">Delete</span></td>
+                    <td><span class="badge border-primary border-1 text-primary"><a
+                          href="/citizendataedit/{{ c.cid }}">Edit</a></span>|<span
+                        class="badge border-danger border-1 text-danger">Delete</span></td>
                   </tr>
-                  {% endfor  %}
+                  {% endfor %}
                 </tbody>
               </table>
               <!-- End Table with hoverable rows -->
 
             </div>
+            <div style="text-align: Center;">
+              <a href="/citizentablelistprint"><button type="button" class="btn btn-primary">Download Report.
+
+                
+              </button></a>
+            </div>
+            <br/>
           </div>
 
-          
-          
 
-          
+
+
+
 
         </div>
       </div>
@@ -381,7 +394,8 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="static/assets/vendor/apexcharts/apexcharts.min.js"></script>

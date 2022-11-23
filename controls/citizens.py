@@ -147,7 +147,9 @@ class CitizensList(Resource):
         try:
             data = tbcitizens.query.all()
             schema = CitizensSchema(many=True)
+            print(1)
             _data = schema.dump(data)
+            print(2)
             return {"citizens":_data}
         except Exception as err:
             return {"msg":err} 

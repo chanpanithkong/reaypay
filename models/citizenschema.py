@@ -1,4 +1,3 @@
-from ctypes import addressof
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema, auto_field
 from .citizens import tbcitizens
 from config.db import db
