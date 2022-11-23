@@ -19,11 +19,11 @@ class tbcitizens(db.Model):
     education = db.Column(db.String)
     nationality = db.Column(db.String)
     partystatus = db.Column(db.String)
-    haspartycard = db.Column(db.Integer)
-    provinceid = db.Column(db.Integer)
-    districtid = db.Column(db.Integer)
-    communeid = db.Column(db.Integer)
-    villageid = db.Column(db.Integer)
+    haspartycard = db.Column(db.String)
+    provinceid = db.Column(db.String)
+    districtid = db.Column(db.String)
+    communeid = db.Column(db.String)
+    villageid = db.Column(db.String)
     address = db.Column(db.String)
     
 

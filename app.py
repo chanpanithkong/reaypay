@@ -19,7 +19,7 @@ from controls.roles import Role,RoleList
 from controls.userroles import UserRoles,UserRolesList
 from controls.villages import Villages,VillagesList
 
-from pagecontrollers.index import IndexPage, LoginPage, CitizenTableList, CitizentDataEntry, CitizentDataEdit
+from pagecontrollers.index import IndexPage, LoginPage, CitizenTableList, CitizentDataEntry, CitizentDataEdit, CitizentAddData, CitizentUpdateData
 
 
 # config file
@@ -82,19 +82,21 @@ api.add_resource(IndexPage, "/")
 api.add_resource(LoginPage, "/login")
 api.add_resource(CitizenTableList, "/citizentablelist")
 api.add_resource(CitizentDataEntry, "/citizendataentry")
+api.add_resource(CitizentAddData, "/citizenadddata")
+
 api.add_resource(CitizentDataEdit, "/citizendataedit/<cid>")
+api.add_resource(CitizentUpdateData, "/citizenupdatedata")
+
+
+
+
+#end web app
 
 
 
 
 
-
-
-
-
-
-
-
+# start api end points
 
 #Authorities
 api.add_resource(AuthoritiesList, "/authoritieslist")

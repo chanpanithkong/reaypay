@@ -15,7 +15,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i') }}" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i') }}"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -210,7 +212,8 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{ url_for('static', filename='assets/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
+            <img src="{{ url_for('static', filename='assets/img/profile-img.jpg') }}" alt="Profile"
+              class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -282,7 +285,8 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Citizen Management</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>Citizen Management</span><i
+            class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -317,101 +321,126 @@
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
+          {% if content == '' %}
 
-          
+          {% else %}
+          {% if isadd %}
+          <div class="alert alert-success bg-success text-light border-0 alert-dismissible fade show" role="alert">
+            {{ content }}
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% else %}
+          <div class="alert alert-danger bg-danger text-light border-0 alert-dismissible fade show" role="alert">
+            {{ content }}
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+          {% endif%}
+          {% endif %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+
+
 
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Citizen Data Management</h5>
 
               <!-- Multi Columns Form -->
-              <form class="row g-3">
+              <form class="row g-3" action="/citizenadddata" method="post">
                 <div class="col-md-12">
-                  <label for="inputName5" class="form-label">Citizen ID</label>
-                  <input type="text" class="form-control" id="inputName5" placeholder="Please fill your citizen id">
+                  <label class="form-label">Citizen ID</label>
+                  <input type="text" class="form-control" placeholder="Please fill your citizen id" name="cid">
                 </div>
                 <div class="col-md-6">
-                  <label for="inputEmail5" class="form-label">Last Name</label>
-                  <input type="email" class="form-control" id="inputEmail5" placeholder="Please fill your last name">
+                  <label class="form-label">Last Name</label>
+                  <input type="text" class="form-control" placeholder="Please fill your last name" name="lastname">
                 </div>
                 <div class="col-md-6">
-                  <label for="inputPassword5" class="form-label">First Name</label>
-                  <input type="password" class="form-control" id="inputPassword5" placeholder="Please fill your first name">
+                  <label class="form-label">First Name</label>
+                  <input type="text" class="form-control" placeholder="Please fill your first name" name="firstname">
                 </div>
 
                 <div class="col-md-4">
-                  <label for="inputState" class="form-label">Gender</label>
-                  <select id="inputState" class="form-select">
+                  <label class="form-label">Gender</label>
+                  <select class="form-select" name="gender">
 
                     <option selected value="Female">Female</option>
                     <option value="Male">Male</option>
-                    
+
                   </select>
                 </div>
                 <div class="col-md-4">
-                  <label for="inputCity" class="form-label">Election Center</label>
-                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your election center">
+                  <label class="form-label">Election Center</label>
+                  <input type="text" class="form-control" placeholder="Please fill your election center"
+                    name="electioncenter">
                 </div>
                 <div class="col-md-4">
-                  <label for="inputZip" class="form-label">Party</label>
-                  <input type="text" class="form-control" id="inputZip" placeholder="Please fill your party">
+                  <label class="form-label">Party</label>
+                  <input type="text" class="form-control" placeholder="Please fill your party" name="party">
                 </div>
                 <div class="col-12">
-                  <label for="inputAddress5" class="form-label">Place of Birth</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="Please fill your place of birth">
+                  <label class="form-label">Place of Birth</label>
+                  <input type="text" class="form-control" placeholder="Please fill your place of birth"
+                    name="placeofbirth">
                 </div>
                 <div class="col-md-4">
-                  <label for="inputCity" class="form-label">Position</label>
-                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your position">
+                  <label class="form-label">Position</label>
+                  <input type="text" class="form-control" placeholder="Please fill your position" name="position">
                 </div>
                 <div class="col-md-4">
-                  <label for="inputZip" class="form-label">Position in Party</label>
-                  <input type="text" class="form-control" id="inputZip" placeholder="Please fill your party position">
+                  <label class="form-label">Position in Party</label>
+                  <input type="text" class="form-control" " placeholder=" Please fill your party position"
+                    name="partyposition">
                 </div>
                 <div class="col-md-4">
-                  <label for="inputZip" class="form-label">Join Party Date</label>
-                  <input type="date" class="form-control" id="inputZip">
+                  <label class="form-label">Join Party Date</label>
+                  <input type="date" class="form-control" name="joinpartydate">
                 </div>
                 <div class="col-md-4">
-                  <label for="inputZip" class="form-label">Nationality</label>
-                  <input type="text" class="form-control" id="inputZip" placeholder="Please fill your nationality">
+                  <label class="form-label">Nationality</label>
+                  <input type="text" class="form-control" " placeholder=" Please fill your nationality"
+                    name="nationality">
                 </div>
                 <div class="col-md-4">
-                  <label for="inputCity" class="form-label">Party Status</label>
-                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your party status">
+                  <label class="form-label">Party Status</label>
+                  <input type="text" class="form-control" placeholder="Please fill your party status"
+                    name="partystatus">
                 </div>
                 <div class="col-4">
-                  <label for="inputCity" class="form-label">Do you have party card ?</label>
+                  <label class="form-label">Do you have party card ?</label>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
+                    <input class="form-check-input" type="checkbox" name="haspartycard">
+                    <label class="form-check-label">
                       Yes, I have
                     </label>
                   </div>
                 </div>
                 <div class="col-md-12">
-                  <label for="inputCity" class="form-label">Education</label>
-                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your education">
+                  <label class="form-label">Education</label>
+                  <input type="text" class="form-control" placeholder="Please fill your education" name="education">
                 </div>
                 <div class="col-md-3">
-                  <label for="inputCity" class="form-label">Province</label>
-                  <input type="text" class="form-control" id="inputCity" placeholder="Province here">
+                  <label class="form-label">Province</label>
+                  <input type="text" class="form-control" placeholder="Province here" name="provinceid">
                 </div>
                 <div class="col-md-3">
-                  <label for="inputCity" class="form-label">District</label>
-                  <input type="text" class="form-control" id="inputCity" placeholder="District here">
+                  <label class="form-label">District</label>
+                  <input type="text" class="form-control" placeholder="District here" name="districtid">
                 </div>
                 <div class="col-md-3">
-                  <label for="inputCity" class="form-label">Commune</label >
-                  <input type="text" class="form-control" id="inputCity" placeholder="Commune here">
+                  <label class="form-label">Commune</label>
+                  <input type="text" class="form-control" placeholder="Commune here" name="commune">
                 </div>
                 <div class="col-md-3">
-                  <label for="inputCity" class="form-label">Village</label>
-                  <input type="text" class="form-control" id="inputCity" placeholder="Village here">
+                  <label class="form-label">Village</label>
+                  <input type="text" class="form-control" placeholder="Village here" name="village">
                 </div>
                 <div class="col-md-12">
-                  <label for="inputCity" class="form-label">Current Address</label>
-                  <input type="text" class="form-control" id="inputCity" placeholder="Please fill your current address">
+                  <label class="form-label">Current Address</label>
+                  <input type="text" class="form-control" placeholder="Please fill your current address" name="address">
                 </div>
 
                 <div class="text-center">
@@ -425,7 +454,7 @@
 
         </div>
 
-        
+
       </div>
     </section>
 
@@ -445,7 +474,8 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="{{ url_for('static', filename='assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
@@ -460,7 +490,7 @@
   <!-- Template Main JS File -->
   <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
   <script>
-    $( ".datepicker" ).datepicker({
+    $(".datepicker").datepicker({
       format: 'yyyy-mm-dd'
     });
   </script>
