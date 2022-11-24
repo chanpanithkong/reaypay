@@ -1,0 +1,26 @@
+<div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section dashboard">
+    <div class="row">
+
+      {% for p in partylist %}
+      {% set filename = "assets/img/" + p.partyid + ".jpg" %}
+      <div class="col-lg-2 col-md-3 col-sm-4" id="1">
+        <div class="card"> 
+          <img src="{{ url_for('static', filename=filename) }}" class="card-img-top" alt="...">
+          <div class="card-body" style="text-align: center;">
+            <h5 class="card-title">{{p.party}}</h5>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>

@@ -1,0 +1,161 @@
+<div class="pagetitle">
+    <h1>Form Layouts</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item">Forms</li>
+            <li class="breadcrumb-item active">Layouts</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            {% if content == '' %}
+
+            {% else %}
+            {% if isadd %}
+            <div class="alert alert-success bg-success text-light border-0 alert-dismissible fade show" role="alert">
+                {{ content }}
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+            </div>
+            {% else %}
+            <div class="alert alert-danger bg-danger text-light border-0 alert-dismissible fade show" role="alert">
+                {{ content }}
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+            </div>
+
+            {% endif%}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+
+
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Citizen Data Management</h5>
+
+                    <!-- Multi Columns Form -->
+                    <form class="row g-3" action="/citizenadddata" method="post">
+                        <div class="col-md-12">
+                            <label class="form-label">Citizen ID</label>
+                            <input type="text" class="form-control" placeholder="Please fill your citizen id"
+                                name="cid">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Please fill your last name"
+                                name="lastname">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" placeholder="Please fill your first name"
+                                name="firstname">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Gender</label>
+                            <select class="form-select" name="gender">
+
+                                <option selected value="Female">Female</option>
+                                <option value="Male">Male</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Election Center</label>
+                            <input type="text" class="form-control" placeholder="Please fill your election center"
+                                name="electioncenter">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Party</label>
+                            <input type="text" class="form-control" placeholder="Please fill your party" name="party">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputZip" class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="inputZip" name="dob">
+                        </div>
+                        <div class="col-8">
+                            <label class="form-label">Place of Birth</label>
+                            <input type="text" class="form-control" placeholder="Please fill your place of birth"
+                                name="placeofbirth">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Position</label>
+                            <input type="text" class="form-control" placeholder="Please fill your position"
+                                name="position">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Position in Party</label>
+                            <input type="text" class="form-control" " placeholder=" Please fill your party position"
+                                name="partyposition">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Join Party Date</label>
+                            <input type="date" class="form-control" id="datecontrol" name="joinpartydate">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Nationality</label>
+                            <input type="text" class="form-control" " placeholder=" Please fill your nationality"
+                                name="nationality">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Party Status</label>
+                            <input type="text" class="form-control" placeholder="Please fill your party status"
+                                name="partystatus">
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label">Do you have party card ?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="haspartycard">
+                                <label class="form-check-label">
+                                    Yes, I have
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Education</label>
+                            <input type="text" class="form-control" placeholder="Please fill your education"
+                                name="education">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Province</label>
+                            <input type="text" class="form-control" placeholder="Province here" name="provinceid">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">District</label>
+                            <input type="text" class="form-control" placeholder="District here" name="districtid">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Commune</label>
+                            <input type="text" class="form-control" placeholder="Commune here" name="commune">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Village</label>
+                            <input type="text" class="form-control" placeholder="Village here" name="village">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Current Address</label>
+                            <input type="text" class="form-control" placeholder="Please fill your current address"
+                                name="address">
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </form><!-- End Multi Columns Form -->
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</section>

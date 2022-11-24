@@ -18,7 +18,7 @@ class IndexPage(Resource):
     def get(cls):
         headers = {'Content-Type': 'text/html'}
         partylist = tbparties.query.all()
-        return make_response(render_template('index.html',partylist=partylist), 200, headers)
+        return make_response(render_template('index.html',partylist=partylist,task='home'), 200, headers)
 
 class LoginPage(Resource):
     @classmethod
@@ -33,7 +33,7 @@ class CitizenTableList(Resource):
         citizenslist = tbcitizens.query.all()
         part = tbparties
         # print(part.find_by_partyid(1).party)
-        return make_response(render_template('citizentablelist.html',title='Home',citizenslist = citizenslist, part=part), 200, headers)
+        return make_response(render_template('index.html',title='Home',citizenslist = citizenslist, part=part,task='citizenlist'), 200, headers)
 
 class MyFPDF(FPDF, HTMLMixin):
     pass
@@ -61,7 +61,7 @@ class CitizentDataEntry(Resource):
         headers = {'Content-Type': 'text/html'}
         isupdate = False
         content = ''
-        return make_response(render_template('citizendataentry.html',msg=isupdate,content=content), 200, headers)
+        return make_response(render_template('index.html',msg=isupdate,content=content,task='citizenadd'), 200, headers)
 
 class CitizentUpdateData(Resource):
     
@@ -150,7 +150,7 @@ class CitizentAddData(Resource):
                 content = 'Citizen ID ' + request.form.get('cid') + ' is already exist.'
                
 
-        return make_response(render_template('citizendataentry.html',isadd=isadd,content=content), 200, headers)
+        return make_response(render_template('index.html',isadd=isadd,content=content,task='citizenadd'), 200, headers)
 
 class CitizentDataEdit(Resource):
     @classmethod
@@ -158,5 +158,5 @@ class CitizentDataEdit(Resource):
         headers = {'Content-Type': 'text/html'}
         citizen = tbcitizens.find_by_cid(cid)
         partylist = tbparties.query.all()
-        return make_response(render_template('citizendataedit.html',c=citizen,partylist=partylist), 200, headers)
+        return make_response(render_template('index.html',c=citizen,partylist=partylist,task='citizenedit'), 200, headers)
         
