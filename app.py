@@ -34,18 +34,18 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:$Cambodia__089$@localhost:3306/dbpartychecklist'
 
 #localdb
-# url = quote('localhost')
-# port =  quote('3306')
-# username = quote('root')
-# password =  quote('$Cambodia__089$')
-# mysqldb = quote('dbpartychecklist')
+url = quote('localhost')
+port =  quote('3306')
+username = quote('root')
+password =  quote('$Cambodia__089$')
+mysqldb = quote('dbpartychecklist')
 
 # bongsithdb
-url = quote('13.230.198.156')
-port =  quote('3306')
-username = quote('phanith')
-password =  quote('@Phan1tH@')
-mysqldb = quote('phanith')
+# url = quote('13.230.198.156')
+# port =  quote('3306')
+# username = quote('phanith')
+# password =  quote('@Phan1tH@')
+# mysqldb = quote('phanith')
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + username + ':' + password + '@' + url + ':' + port + '/' + mysqldb
@@ -82,7 +82,7 @@ def page_not_found(err):
 api.add_resource(IndexPage, "/")
 api.add_resource(LoginPage, "/login")
 api.add_resource(CitizenTableList, "/citizentablelist")
-api.add_resource(CitizenTableListPrint, "/citizentablelistprint")
+# api.add_resource(CitizenTableListPrint, "/citizentablelistprint")
 
 api.add_resource(CitizentDataEntry, "/citizendataentry")
 api.add_resource(CitizentAddData, "/citizenadddata")

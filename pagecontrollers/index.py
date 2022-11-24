@@ -75,14 +75,14 @@ class CitizentUpdateData(Resource):
         citizen_data.middlename = CitizentAddData.convertNonetoNull(request.form.get('middlename'))
         citizen_data.firstname = CitizentAddData.convertNonetoNull(request.form.get('firstname'))
         citizen_data.gender = CitizentAddData.convertNonetoNull(request.form.get('gender'))
-        citizen_data.dob = datetime.datetime.now()
+        citizen_data.dob = CitizentAddData.convertNonetoNull(request.form.get('dob'))
         citizen_data.placeofbirth = CitizentAddData.convertNonetoNull(request.form.get('placeofbirth'))
         
         citizen_data.electioncenter = CitizentAddData.convertNonetoNull(request.form.get('electioncenter'))
         citizen_data.party = CitizentAddData.convertNonetoNull(request.form.get('party'))
         citizen_data.updatedby = '1'
         citizen_data.updateddate = datetime.datetime.now()
-        citizen_data.joinpartydate = datetime.datetime.now()
+        citizen_data.joinpartydate = CitizentAddData.convertNonetoNull(request.form.get('joinpartydate'))
         citizen_data.position = CitizentAddData.convertNonetoNull(request.form.get('position'))
         citizen_data.partyposition = CitizentAddData.convertNonetoNull(request.form.get('partyposition'))
         citizen_data.education = CitizentAddData.convertNonetoNull(request.form.get('education'))
@@ -121,14 +121,14 @@ class CitizentAddData(Resource):
                 get_statusdata.middlename = CitizentAddData.convertNonetoNull(request.form.get('middlename'))
                 get_statusdata.firstname = CitizentAddData.convertNonetoNull(request.form.get('firstname'))
                 get_statusdata.gender = CitizentAddData.convertNonetoNull(request.form.get('gender'))
-                get_statusdata.dob = datetime.datetime.now()
+                get_statusdata.dob = datetime.date.fromisoformat(request.form.get('dob'))
                 get_statusdata.placeofbirth = CitizentAddData.convertNonetoNull(request.form.get('placeofbirth'))
                 
                 get_statusdata.electioncenter = CitizentAddData.convertNonetoNull(request.form.get('electioncenter'))
                 get_statusdata.party = CitizentAddData.convertNonetoNull(request.form.get('party'))
                 get_statusdata.updatedby = '1'
                 get_statusdata.updateddate = datetime.datetime.now()
-                get_statusdata.joinpartydate = datetime.datetime.now()
+                get_statusdata.joinpartydate = CitizentAddData.convertNonetoNull(request.form.get('joinpartydate'))
                 get_statusdata.position = CitizentAddData.convertNonetoNull(request.form.get('position'))
                 get_statusdata.partyposition = CitizentAddData.convertNonetoNull(request.form.get('partyposition'))
                 get_statusdata.education = CitizentAddData.convertNonetoNull(request.form.get('education'))
