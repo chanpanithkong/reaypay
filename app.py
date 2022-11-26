@@ -82,7 +82,7 @@ def page_not_found(err):
 api.add_resource(IndexPage, "/")
 api.add_resource(LoginPage, "/login")
 api.add_resource(CitizenTableList, "/citizentablelist")
-# api.add_resource(CitizenTableListPrint, "/citizentablelistprint")
+api.add_resource(CitizenTableListPrint, "/citizentablelistprint")
 
 api.add_resource(CitizentDataEntry, "/citizendataentry")
 api.add_resource(CitizentAddData, "/citizenadddata")

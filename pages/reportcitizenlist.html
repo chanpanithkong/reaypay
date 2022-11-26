@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script> -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/printThis.js') }} ""></script>
+
+    <link href="https://printjs-4de6.kxcdn.com/print.min.css " rel="stylesheet" />
+    
+</head>
+
+<body>
+    <div style="text-align: Center;">
+        <a href="/"><button type="button" class="btn">Back to Home page</button></a>
+        <button id="download_report" type="button" class="btn">Download Report</button>
+      </div>
+    <script>
+        $(document).ready(function () {
+            $("#download_report").click(function () {
+            $('.pmain').printThis({
+                printDelay: 2000, // waiting 2 secondes
+                importCSS: true,
+                importStyle: true,
+                loadCSS: true,
+                canvas: true
+            });
+        });
+    });
+    </script>
+    <style>
+        
+        @font-face {
+            font-family: KhmerOSmuol;
+            src:url("{{ url_for('static', filename='assets/font/KhmerOSmuol.ttf') }} ");
+        }
+        @font-face {
+            font-family: TACTENG;
+            src:url("{{ url_for('static', filename='assets/font/TACTENG.ttf') }} ");
+        }
+        @font-face {
+            font-family: KhmerOS;
+            src:url("{{ url_for('static', filename='assets/font/KhmerOSsys.ttf') }} ");
+        }
+        .head_left{
+            
+            width:100%;
+        }
+        .head_center{
+               
+            width:100%;   
+            text-align: center;
+            padding-top: 20px;
+        }
+        .head_right{
+            
+            width: 100%;
+            text-align: center;
+            
+        }
+        .head_right_footer{
+            font-family: TACTENG;
+        }
+        .phead{
+            font-family: KhmerOSmuol;
+            width: 100%;
+            display: inline-flex;
+            
+            font-size: 10px;
+        }
+        .pbody{
+            font-family: KhmerOS;
+            font-size: 10px;
+            text-align: center;
+        }
+        .pbody > table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table,  td,  th {
+            border: 1px solid black;
+        }
+        .pfooter {
+            font-family: KhmerOS;
+            width: 100%;
+            font-size: 10px;
+        }
+        .pfooter1{
+            display: inline-flex;
+            width: 100%;
+        }
+        .pfooter1_left{
+            width: 100%;
+            
+        }
+        .pfooter1_right{
+            width: 50%;
+            text-align: center;
+            top: 0;
+        }
+
+        .pfooter2{
+            display: inline-flex;
+            width: 100%;
+            text-align: center;
+            font-family: KhmerOSmuol;
+        }
+        .pfooter2_left{
+            width: 100%;
+        }
+        .pfooter2_center{
+            width: 100%;
+        }
+        .pfooter2_right{
+            width: 100%;
+        }
+        
+    </style>
+    <div class="pmain" id="pmain">
+        <div class="phead">
+            <div class="head_left">
+                <div>គណបក្សប្រជាជនកម្ពុជា</div>
+                <div>គណៈកម្មធិការខេត្តកំពង់ចាម</div>
+                <div>គណៈកម្មធិការបក្សស្រុកកងមាស</div>
+                <div>គណៈកម្មធិការបក្សឃុំរាយប៉ាយ</div>
+                <div>សាខាបក្សភូមិ............</div>
+                <div>ក្រុមបក្សទី............</div>
+            </div>
+            <div class="head_center">
+                <img src="{{ url_for('static', filename='assets/img/cpp.png') }} " width="120" height="120"/>
+                <p>បញ្ជីរាយនាមសមាជិកគណបក្សប្រជាជនកម្ពុជាក្រុមបក្សទី......</p>
+                
+            </div>
+            <div class="head_right">
+                <div>ឯករាជ្យ សន្តិភាព សេរីភាព ប្រជាធិបតេយ្យ</div>
+                <div>អព្យាក្រឹត និងវឌ្ឍនភាពសង្គម</div>
+                <div class="head_right_footer"><p>rrr0sss</p></div>
+            </div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="pbody">
+            <table class="print_table">
+                <tr>
+                    <td rowspan="2">ល.រ</td>
+                    <td rowspan="2">គោត្តនាម</td>
+                    <td rowspan="2">ភេទ</td>
+                    <td rowspan="2">ថ្ងៃ ខែ ឆ្នាំ កំណើត</td>
+                    <td rowspan="2">ថ្ងៃ ខែ ឆ្នាំ ចូលបក្ស</td>
+                    <td rowspan="2">ទីកន្លែងកំណើត</td>
+                    <td colspan="4">អាស័យដ្ឋានបច្ចុប្បន្ន</td>
+                    <td rowspan="2">លេខអត្ត សញ្ញាណ បណ្ណ</td>
+                    <td rowspan="2">តួនាទី មុខរបរ</td>
+                    <td rowspan="2">តួនាទី ក្នុងបក្ស</td>
+                    <td rowspan="2">កម្រិត វប្បធន៍</td>
+                    <td rowspan="2">ជនជាតិ</td>
+                    <td colspan="2">សមាជិកបក្ស ចំណាកស្រុក</td>
+                    <td rowspan="2">មានឬ គ្មាន បណ្ណ សមាជិត</td>
+                </tr>
+                <tr>
+                    <td>ភូមិ</td>
+                    <td>ឃុំ សង្កាត់</td>
+                    <td>ក្រុង ស្រុក</td>
+                    <td>ខេត្ត</td>
+                    <td>ក្នុង</td>
+                    <td>ក្រៅ</td>
+                </tr>
+                {% for c in citizenslist %}
+                <tr>
+                    <td>10</td>
+                    <td>{{ c.firstname + ' ' + c.lastname }}</td>
+                    <td>{{ c.gender }}</td>
+                    <td>{{ c.dob }}</td>
+                    <td>{{ c.joinpartydate }}</td>
+                    <td>{{ c.placeofbirth }}</td>
+                    <td>{{ c.villageid }}</td>
+                    <td>{{ c.communeid }}</td>
+                    <td>{{ c.districtid }}</td>
+                    <td>{{ c.provinceid }}</td>
+                    <td>{{ c.cid }}</td>
+                    <td>{{ c.position }}</td>
+                    <td>{{ c.partyposition }}</td>
+                    <td>{{ c.education }}</td>
+                    <td>{{ c.nationality }}</td>
+                    <td>{{ c.partystatus }}</td>
+                    <td>{{ c.partystatus }}</td>
+                    <td>{{ c.haspartycard }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <br/>
+        <div class="pfooter">
+            <div class="pfooter1">
+                <div class="pfooter1_left">បញ្ជាក់ ៖ ក្រុមបក្សទី...........មានសមាជិកបក្សចំនួន........ស្រី......នាក់, មានគ្រួសារបក្សចំនួន...........</div>
+                <div class="pfooter1_center"></div>
+                <div class="pfooter1_right">
+                    <div>ថ្ងៃ...........ខែ.........ឆ្នាំខាលចត្វាស័ក ព.ស ២៥៦៦</div>
+                    <div>.............ថ្ងៃ.......ខែ.........ឆ្នាំ២០២២</div>
+                    <div class="pfooter_right_footer"></div>
+                </div>
+            </div>
+            <div class="pfooter2">
+                <div class="pfooter2_left">
+                    <div>បានឃើញ និងឯកភាព</div>
+                    <div>ប្រធានក្រុមការងារគណបក្យចុះជួយភូមិ</div>
+                </div>
+                <div class="pfooter2_center">
+                    <div>បានឃើញ និងឯកភាព</div>
+                    <div>ប្រធានក្រុមបក្យភូមិ</div>
+                </div>
+                <div class="pfooter2_left">
+                    <div>ប្រធានក្រុមបក្យ</div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</body>
+
+</html>

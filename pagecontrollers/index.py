@@ -44,16 +44,7 @@ class CitizenTableListPrint(Resource):
         headers = {'Content-Type': 'text/html'}
         citizenslist = tbcitizens.query.all()
         part = tbparties
-        
-        pdf = MyFPDF()
-        #First page
-        pdf.add_font('KhmerOS','','KhmerOS.ttf')
-        pdf.set_font('KhmerOS','',14)
-        pdf.add_page()
-        pdf.write_html("<p>test</p>")
-        pdf.output('mypdf.pdf','F')
-        path = "mypdf.pdf"
-        return send_file(path, as_attachment=True)
+        return make_response(render_template('reportcitizenlist.html',part=part,citizenslist=citizenslist), 200, headers)
 
 class CitizentDataEntry(Resource):
     @classmethod
