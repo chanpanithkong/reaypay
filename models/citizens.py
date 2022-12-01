@@ -59,4 +59,4 @@ class tbcitizens(db.Model):
 
     @classmethod
     def find_by_fullname(cls, name) -> "tbcitizens":
-        return cls.query.filter(or_(db.Column("firstname").contains(name),db.Column("lastname").contains(name))).all()
+        return cls.query.filter(or_(db.Column("firstname").contains(name),db.Column("lastname").contains(name)))

@@ -18,8 +18,8 @@ class CitizensByName(Resource):
     # @jwt_required()
     def get(cls,name=None):
         try:  
-            data = tbcitizens.find_by_fullname(name)
-            schema = CitizensSchema(many=False)
+            data = tbcitizens.find_by_fullname(name).all()
+            schema = CitizensSchema(many=True)
             _data = schema.dump(data)
             return {"citizens":_data}
         except Exception as err:
