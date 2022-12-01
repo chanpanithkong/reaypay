@@ -10,7 +10,7 @@ from urllib.parse import quote
 
 from controls.wsusers import WsTokenRefresh, WsUserLogin, WsUserLogout
 from controls.authorities import Authorities,AuthoritiesList,  AuthoritiesLogin
-from controls.citizens import Citizens,CitizensList,InsertCitizen,DeleteCitizen,UpdateCitizen,UpdateCitizenParty
+from controls.citizens import Citizens,CitizensList,InsertCitizen,DeleteCitizen,UpdateCitizen,UpdateCitizenParty, CitizensByName
 from controls.communes import Communes,CommunesList
 from controls.districts import Districts,DistrictsList
 from controls.parties import Parties,PartiesList
@@ -108,6 +108,7 @@ api.add_resource(AuthoritiesLogin, "/authoritieslogin")
 #Citizens
 api.add_resource(CitizensList, "/citizenslist")
 api.add_resource(Citizens, "/citizens/<cid>")
+api.add_resource(CitizensByName, "/citizenname/<name>")
 api.add_resource(DeleteCitizen, "/deletecitizen")
 api.add_resource(InsertCitizen, "/insertcitizen")
 api.add_resource(UpdateCitizenParty, "/updatecitizenparty")

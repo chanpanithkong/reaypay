@@ -1,4 +1,5 @@
 from config.db import db
+from sqlalchemy import or_
 
 class tbcitizens(db.Model):
 
@@ -55,3 +56,7 @@ class tbcitizens(db.Model):
     @classmethod
     def find_by_cid(cls, cid) -> "tbcitizens":
         return cls.query.filter_by(cid=cid).first()
+
+    @classmethod
+    def find_by_fullname(cls, name) -> "tbcitizens":
+        return cls.query.filter(or_(db.Column("firstname").contains(name),db.Column("lastname").contains(name))).first()

@@ -12,6 +12,19 @@ from models.citizenschema import CitizensSchema
 
 jwt = JWTManager(app)
 
+
+class CitizensByName(Resource):
+    @classmethod
+    # @jwt_required()
+    def get(cls,name=None):
+        try:  
+            data = tbcitizens.find_by_fullname(name)
+            schema = CitizensSchema(many=False)
+            _data = schema.dump(data)
+            return {"citizens":_data}
+        except Exception as err:
+            return {"msg":err} 
+
 class Citizens(Resource):
     @classmethod
     # @jwt_required()
