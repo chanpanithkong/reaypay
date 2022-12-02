@@ -12,6 +12,15 @@ from models.citizenschema import CitizensSchema
 
 jwt = JWTManager(app)
 
+class CitizensCountByParty(Resource):
+    @classmethod
+    # @jwt_required()
+    def get(cls,party=None):
+        try:  
+            data = tbcitizens.find_by_party(party).count()
+            return {"citizens":{"count": data}}
+        except Exception as err:
+            return {"msg":err} 
 
 class CitizensByName(Resource):
     @classmethod
