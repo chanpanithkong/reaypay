@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api
 from urllib.parse import quote 
 
+from dbonfig import dbconfig
+
 # app = Flask(__name__, template_folder='templates')
 app = Flask(__name__)
 api = Api(app)
@@ -27,7 +29,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:$Cambodia__089$@localhost:
 # password =  quote('@Phan1tH@')
 # mysqldb = quote('phanith')
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + username + ':' + password + '@' + url + ':' + port + '/' + mysqldb
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + dbconfig.username + ':' + dbconfig.password + '@' + dbconfig.url + ':' + dbconfig.port + '/' + dbconfig.mysqldb
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("CLEARDB_DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
