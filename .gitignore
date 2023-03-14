@@ -5,3 +5,4 @@ __pycache__/
 controls/__pycache__/
 models/__pycache__/
 pyvenv.cfg
+venv/
