@@ -21,6 +21,7 @@ from controls.villages import Villages,VillagesList
 
 from pagecontrollers.index import IndexPage, LoginPage, CitizenTableList, CitizentDataEntry, CitizentDataEdit, CitizentAddData, CitizentUpdateData, CitizenTableListPrint
 
+from dbonfig import dbconfig
 
 # config file
 app = Flask(__name__,template_folder='pages')
@@ -41,14 +42,14 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 # mysqldb = quote('dbpartychecklist')
 
 # bongsithdb
-url = quote('13.230.198.156')
-port =  quote('3306')
-username = quote('phanith')
-password =  quote('@Phan1tH@')
-mysqldb = quote('phanith')
+# url = quote('13.230.198.156')
+# port =  quote('3306')
+# username = quote('phanith')
+# password =  quote('@Phan1tH@')
+# mysqldb = quote('phanith')
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + username + ':' + password + '@' + url + ':' + port + '/' + mysqldb
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + dbconfig.username + ':' + dbconfig.password + '@' + dbconfig.url + ':' + dbconfig.port + '/' + dbconfig.mysqldb
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("CLEARDB_DATABASE_URL")
 
